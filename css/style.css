@@ -281,7 +281,24 @@ body {
 .progress-fill.animated {
     width: var(--target-width, 0%) !important;
 }
-
+ /* Resume Button */
+    .btn-resume {
+      background: #10b981;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+      transition: all 0.3s;
+    }
+    .btn-resume:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+    }
 /* Professional Skills */
 .professional-skills {
     display: flex;
