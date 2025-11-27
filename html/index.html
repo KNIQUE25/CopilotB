@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <!-- Google Font: Inter (Crystal Clear & Modern) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Box Icons -->
+ <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <!-- CSS link -->
+   <link rel="stylesheet" href="/css/style.css">
+  <title>Bridgette Kimotho| Full Stack Developer</title>
+    
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Bridgette Kimotho</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-4">
+          <li><a class="nav-link active" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#skill">Skills</a></li>
+          <li><a class="nav-link" href="#education">Education</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li>
+            <button class="theme-toggle btn" id="themeToggle">
+              <i class='bx bxs-moon'></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+ <!-- Hero Section with Animated Particles Background -->
+<section id="home" class="hero position-relative">
+  <!-- Particles Background -->
+  <div id="particles-js" class="position-absolute top-0 start-0 w-100 h-100"></div>
+
+  <div class="container position-relative" style="z-index: 2;">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-6" data-aos="fade-right">
+        <h1 class="display-1 mb-4">Hi, I'm <span>Bridgette Kimotho</span></h1>
+        <p class="lead mb-4">Full Stack Developer & UI/UX Designer</p>
+        <p class="fs-5 mb-4">I create digital experiences that inspire, engage, and deliver results. Let's build something extraordinary together!</p>
+        
+        <!-- Inspiring Call-to-Action -->
+        <div class="inspiration-box p-4 mb-4 rounded">
+          <h4 class="mb-3">🚀 Ready to Bring Your Vision to Life?</h4>
+          <p class="mb-3">Let's collaborate to create solutions that drive success and make an impact.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#contact" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+              <i class="fas fa-rocket me-2"></i>Start Your Project
+            </a>
+            <a href="tel:+1234567890" class="btn btn-outline-primary btn-lg px-5 py-3 rounded-pill">
+              <i class="fas fa-phone me-2"></i>Call Me Now
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="300">
+        <img src="/images/Pasted image.png" height="260" width="250" alt="Bridgette" class="hero-img img-fluid">
+      </div>
+    </div>
+
+    <!-- Floating Tech Icons -->
+    <div class="tech-circle" style="width:120px;height:120px;top:10%;left:10%;animation-delay:0s;">
+      <i class="fab fa-html5"></i>
+    </div>
+    <div class="tech-circle" style="width:100px;height:100px;top:30%;right:15%;animation-delay:3s;">
+      <i class="fab fa-css3-alt"></i>
+    </div>
+    <div class="tech-circle" style="width:140px;height:140px;bottom:20%;left:5%;animation-delay:6s;">
+      <i class="fab fa-js"></i>
+    </div>
+    <div class="tech-circle" style="width:110px;height:110px;top:50%;right:10%;animation-delay:9s;">
+      <i class="fab fa-react"></i>
+    </div>
+    <div class="tech-circle" style="width:130px;height:130px;bottom:10%;right:20%;animation-delay:12s;">
+      <i class="fab fa-node-js"></i>
+    </div>
+  </div>
+</section>
+
+  <!-- About Section -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">About Me</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="200">
+          <p class="lead">I'm a passionate Full Stack Developer who loves turning ideas into reality through clean code and beautiful design.</p>
+          <div class="row mt-5">
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+              <i class="fas fa-code fa-3x text-primary mb-3"></i>
+              <h5>Clean Code</h5>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+              <i class="fas fa-palette fa-3x text-primary mb-3"></i>
+              <h5>Creative Design</h5>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
+              <i class="fas fa-rocket fa-3x text-primary mb-3"></i>
+              <h5>Fast Delivery</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+       <!-- Skills Section -->
+<section id="skill" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">My Skills</h2>
+    
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <!-- Technical Skills -->
+        <h4 class="mb-4 text-center" data-aos="fade-up" data-aos-delay="100">Technical Skills</h4>
+        
+        <div class="mb-5">
+          <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="200">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="fw-bold">HTML & CSS</span>
+              <span>95%</span>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill html-css" data-width="95">95%</div>
+            </div>
+          </div>
+
+          <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="300">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="fw-bold">JavaScript</span>
+              <span>90%</span>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill js" data-width="90">90%</div>
+            </div>
+          </div>
+
+          <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="400">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="fw-bold">React / Next.js</span>
+              <span>88%</span>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill react" data-width="88">88%</div>
+            </div>
+          </div>
+
+          <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="500">
+            <div class="skill-name d-flex justify-content-between mb-2">
+              <span class="fw-bold">Node.js & Express</span>
+              <span>82%</span>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill node" data-width="82">82%</div>
+            </div>
+          </div>
+
+          <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="600">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="fw-bold">MongoDB / PostgreSQL</span>
+              <span>85%</span>
+            </div>
+            <div class="progress-bg">
+              <div class="progress-fill db" data-width="85">85%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Professional Skills -->
+        <section class="mt-5" data-aos="fade-up" data-aos-delay="900">
+            <h2 class="section-title">Professional Skills</h2>
+            <ul class="professional-skills">
+                <li data-aos="zoom-in" data-aos-delay="1000">Problem Solving</li>
+                <li data-aos="zoom-in" data-aos-delay="1100">Team Collaboration</li>
+                <li data-aos="zoom-in" data-aos-delay="1200">Project Management</li>
+                <li data-aos="zoom-in" data-aos-delay="1300">Communication</li>
+                <li data-aos="zoom-in" data-aos-delay="1400">Adaptability</li>
+                <li data-aos="zoom-in" data-aos-delay="1500">Time Management</li>
+            </ul>
+        </section>
+  </div>
+</section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Education</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-body">
+              <h5>Diploma of Software Development</h5>
+              <p class="text-primary">Institute of Software Development • 2025 - 2026</p>
+              <p>Graduated with First Class Honors • GPA: 3.9/4.0</p>
+            </div>
+          </div>
+          <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-body">
+              <h5>Certificate of Software Development</h5>
+              <p class="text-primary">Institute of Software Development • 2025</p>
+              <p>Mastered MERN Stack, Next.js, and modern web technologies</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100 project-card">
+            <img src="https://via.placeholder.com/400x250.png?text=E-Commerce" class="card-img-top" alt="Project">
+            <div class="card-body d-flex flex-column">
+              <h5>E-Commerce Platform</h5>
+              <p>Full-stack store with Stripe payments, admin panel, and user auth.</p>
+              <div class="mt-auto">
+                <span class="badge me-2">React</span>
+                <span class="badge me-2">Node.js</span>
+                <span class="badge">MongoDB</span>
+              </div>
+              <div class="project-links mt-3">
+                <a href="#" class="btn btn-sm btn-primary me-2"><i class="fas fa-external-link-alt me-1"></i>Live Demo</a>
+                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fab fa-github me-1"></i>GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100 project-card">
+            <img src="https://via.placeholder.com/400x250.png?text=Task+App" class="card-img-top" alt="Project">
+            <div class="card-body d-flex flex-column">
+              <h5>TaskFlow Pro</h5>
+              <p>Real-time collaborative task manager with drag & drop.</p>
+              <div class="mt-auto">
+                <span class="badge me-2">Next.js</span>
+                <span class="badge me-2">Prisma</span>
+                <span class="badge">Socket.io</span>
+              </div>
+              <div class="project-links mt-3">
+                <a href="#" class="btn btn-sm btn-primary me-2"><i class="fas fa-external-link-alt me-1"></i>Live Demo</a>
+                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fab fa-github me-1"></i>GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100 project-card">
+            <img src="https://via.placeholder.com/400x250.png?text=Weather+App" class="card-img-top" alt="Project">
+            <div class="card-body d-flex flex-column">
+              <h5>Weather Dashboard</h5>
+              <p>Beautiful weather app with forecasts and geolocation.</p>
+              <div class="mt-auto">
+                <span class="badge me-2">React</span>
+                <span class="badge me-2">Chart.js</span>
+                <span class="badge">API</span>
+              </div>
+              <div class="project-links mt-3">
+                <a href="#" class="btn btn-sm btn-primary me-2"><i class="fas fa-external-link-alt me-1"></i>Live Demo</a>
+                <a href="#" class="btn btn-sm btn-outline-primary"><i class="fab fa-github me-1"></i>GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+      <div class="row">
+        <!-- Contact Info Left Side -->
+        <div class="col-lg-4 mb-5" data-aos="fade-right">
+          <div class="contact-info">
+            <h4 class="mb-4">Let's Connect!</h4>
+            <p class="mb-4">I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+            
+            <div class="contact-item mb-3">
+              <i class="fas fa-phone text-primary me-3"></i>
+              <span>+1 (234) 567-890</span>
+            </div>
+            <div class="contact-item mb-3">
+              <i class="fas fa-envelope text-primary me-3"></i>
+              <span>bridgette@example.com</span>
+            </div>
+            <div class="contact-item mb-3">
+              <i class="fas fa-map-marker-alt text-primary me-3"></i>
+              <span>Nairobi, Kenya</span>
+            </div>
+            
+            <div class="social-media mt-4">
+              <h6 class="mb-3">Follow me on:</h6>
+              <div class="d-flex gap-3">
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Form Right Side -->
+        <div class="col-lg-8" data-aos="fade-left" data-aos-delay="200">
+          <form action="" method="POST" id="contactForm" class="mb-5">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <input type="text" name="name" class="form-control form-control-lg" placeholder="Your Name" required>
+              </div>
+              <div class="col-md-6">
+                <input type="email" name="email" class="form-control form-control-lg" placeholder="Your Email" required>
+              </div>
+              <div class="col-12">
+                <input type="text" name="subject" class="form-control form-control-lg" placeholder="Subject" required>
+              </div>
+              <div class="col-12">
+                <textarea name="message" class="form-control form-control-lg" rows="6" placeholder="Your Message" required></textarea>
+              </div>
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+                 <i class='bx bxs-paper-plane'></i>Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+          <div id="successMessage" class="text-center bg-success text-white p-4 rounded" style="display:none;">
+            <h4>Thank You!</h4>
+            <p>Your message has been sent successfully.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extended Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5>Bridgette Kimotho</h5>
+          <p>Full Stack Developer & UI/UX Designer</p>
+          <p>Creating digital experiences that make a difference.</p>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <h5>Quick Links</h5>
+          <div class="d-flex flex-column gap-2">
+            <a href="#home" class="footer-link">Home</a>
+            <a href="#about" class="footer-link">About</a>
+            <a href="#projects" class="footer-link">Projects</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <h5>Services</h5>
+          <div class="d-flex flex-column gap-2">
+            <span>Web Development</span>
+            <span>UI/UX Design</span>
+            <span>Mobile Apps</span>
+            <span>Consulting</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-top pt-4 mt-4">
+        <div class="mb-4">
+          <a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>
+          <a href="#" class="social-link"><i class='bx bxl-github'></i></a>
+          <a href="#" class="social-link"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="social-link"><i class='bx bxl-instagram'></i></a>
+          <a href="mailto:alex@example.com" class="social-link"><i class='bx bx-envelope'></i></a>
+        </div>
+        <p class="mb-0">&copy; 2025 Bridgette Kimotho. Made with <i class='bx bxs-heart text danger'></i> & Code</p>
+        <p class="small mt-2">Crafting digital excellence one line at a time</p>
+      </div>
+    </div>
+  </footer>
+
+ <!-- Particles.js for animated background -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<!-- Your existing scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="/JS/main.js"></script>
+</body>
+</html>
