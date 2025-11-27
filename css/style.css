@@ -43,6 +43,8 @@ body {
     background: linear-gradient(90deg, var(--primary-blue), var(--accent-pink));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback for browsers that don't support background-clip */
 }
 
 .nav-link {
@@ -125,6 +127,8 @@ body {
     background: linear-gradient(90deg, #ffd700, #ff6b6b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback */
 }
 
 .hero .lead, .hero .fs-5 {
@@ -190,7 +194,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Animated Tech Circles */
+/* Animated Tech Circles - FIXED */
 .tech-circle {
     position: absolute;
     border-radius: 50%;
@@ -204,17 +208,24 @@ body {
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
     overflow: hidden;
+    z-index: 1; /* Ensure circles stay in background */
 }
 
 @keyframes float {
     0% {
-        transform: translateY(100vh) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px) rotate(90deg);
     }
     50% {
-        transform: translateY(100vh) rotate(360deg);
+        transform: translateY(-40px) translateX(-10px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(-20px) translateX(10px) rotate(270deg);
     }
     100% {
-        transform: translateY(-100vh) rotate(-360deg);
+        transform: translateY(0) translateX(0) rotate(360deg);
     }
 }
 
@@ -239,7 +250,7 @@ body {
     border-radius: 3px;
 }
 
-/* Progress Bars */
+/* Progress Bars - FIXED */
 .progress-bg {
     height: 14px;
     background: #e2e8f0;
@@ -268,7 +279,7 @@ body {
 }
 
 .progress-fill.animated {
-    width: attr(data-width) !important;
+    width: var(--target-width, 0%) !important;
 }
 
 /* Professional Skills */
@@ -431,3 +442,15 @@ footer {
 [data-bs-theme="dark"] .bg-light {
     background-color: #1a1a2e !important;
 }
+
+/* Fix for missing icons */
+.bxl-html5:before { content: "HTML"; font-style: normal; }
+.bxl-css3:before { content: "CSS"; font-style: normal; }
+.bxl-javascript:before { content: "JS"; font-style: normal; }
+.bxl-react:before { content: "React"; font-style: normal; }
+.bxl-nodejs:before { content: "Node"; font-style: normal; }
+.bxl-github:before { content: "GitHub"; font-style: normal; }
+.bxl-linkedin:before { content: "LinkedIn"; font-style: normal; }
+.bxl-twitter:before { content: "Twitter"; font-style: normal; }
+.bxl-instagram:before { content: "Instagram"; font-style: normal; }
+.bxl-facebook:before { content: "Facebook"; font-style: normal; }
