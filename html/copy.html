@@ -242,7 +242,7 @@
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           <li class="nav-item">
             <button class="theme-toggle btn" id="themeToggle">
-              <i class="bxs-moon"></i>
+              <i class="bx bxs-moon"></i>
             </button>
           </li>
         </ul>
@@ -411,7 +411,7 @@
         <a href="#" class="social-link mx-2"><i class="bx bxl-instagram"></i></a>
         <a href="mailto:alex@example.com" class="social-link mx-2"><i class="bx bx-envelope"></i></a>
       </div>
-      <p class="mb-0">&copy; 2025 Alex Ocean. Made with <i class="bxs-heart text-danger"></i> & Passion</p>
+      <p class="mb-0">&copy; 2025 Alex Ocean. Made with <i class="bx bxs-heart text-danger"></i> & Passion</p>
     </div>
   </footer>
 
@@ -425,13 +425,13 @@
     const toggle = document.getElementById('themeToggle');
     const html = document.documentElement;
     if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      html.setAttribute('data-bs-theme', 'dark');
+        html.setAttribute('data-bs-theme', 'dark');
       toggle.innerHTML = '<i class="bx bx-sun"></i>';
     }
     toggle.addEventListener('click', () => {
       if (html.getAttribute('data-bs-theme') === 'dark') {
         html.setAttribute('data-bs-theme', 'light');
-        toggle.innerHTML = '<i class="bxs-moon"></i>';
+        toggle.innerHTML = '<i class="bx bxs-moon"></i>';
         localStorage.setItem('theme', 'light');
       } else {
         html.setAttribute('data-bs-theme', 'dark');
