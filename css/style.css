@@ -118,13 +118,24 @@ body {
 }
 
 .hero h1 {
-    font-size: 3.8rem !important;
+    /* Responsive heading size so it stays visible on laptop / mid-sized screens
+       - clamp(min, fluid, max) keeps the heading readable on phones and laptops
+       without overflowing or pushing other content offscreen. */
+    font-size: clamp(2.2rem, 5.2vw, 3.8rem) !important;
+    line-height: 1.05;
     font-weight: 700 !important;
     color: white !important;
+    word-break: break-word; /* avoid overflow from long words */
+}
+
+/* Ensure utility .display-1 (if used) is also responsive */
+.display-1 {
+    font-size: clamp(2.2rem, 5.2vw, 3.8rem) !important;
 }
 
 .hero h1 span {
     background: linear-gradient(90deg, #ffd700, #ff6b6b);
+    margin-bottom: 100px;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -138,7 +149,7 @@ body {
 /* Inspiration Box */
 .inspiration-box {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
 }
@@ -198,7 +209,7 @@ body {
 .tech-circle {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.274);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -460,14 +471,3 @@ footer {
     background-color: #1a1a2e !important;
 }
 
-/* Fix for missing icons */
-.bxl-html5:before { content: "HTML"; font-style: normal; }
-.bxl-css3:before { content: "CSS"; font-style: normal; }
-.bxl-javascript:before { content: "JS"; font-style: normal; }
-.bxl-react:before { content: "React"; font-style: normal; }
-.bxl-nodejs:before { content: "Node"; font-style: normal; }
-.bxl-github:before { content: "GitHub"; font-style: normal; }
-.bxl-linkedin:before { content: "LinkedIn"; font-style: normal; }
-.bxl-twitter:before { content: "Twitter"; font-style: normal; }
-.bxl-instagram:before { content: "Instagram"; font-style: normal; }
-.bxl-facebook:before { content: "Facebook"; font-style: normal; }
