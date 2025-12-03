@@ -189,7 +189,7 @@ body {
 }
 
 [data-bs-theme="dark"] .btn-outline-primary:hover {
-    background: var(--accent-pink);
+    background: var(--dark-bg);
     border-color: var(--accent-pink);
 }
 
