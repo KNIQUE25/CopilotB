@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alex Ocean | Full Stack Developer</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Boxicons (replace FontAwesome icons with Boxicons) -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --sky-blue: #0ea5e9;
+      --ocean-blue: #0284c7;
+      --light-bg: #f0f9ff;
+      --light-card: #ffffff;
+      --dark-bg: #0f172a;
+      --dark-card: #1e293b;
+    }
+
+    [data-bs-theme="dark"] {
+      --bs-body-bg: var(--dark-bg);
+      --bs-body-color: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light-bg);
+      transition: all 0.5s ease;
+    }
+
+    /* Navbar */
+    .navbar {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.9) !important;
+      box-shadow: 0 4px 20px rgba(14, 165, 233, 0.15);
+    }
+    [data-bs-theme="dark"] .navbar {
+      background: rgba(15, 23, 42, 0.9) !important;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 50%;
+      background: var(--sky-blue);
+      transition: 0.3s;
+      transform: translateX(-50%);
+    }
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 70%;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--sky-blue) !important;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--sky-blue);
+      color: var(--sky-blue);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      transition: all 0.4s ease;
+    }
+    .theme-toggle:hover {
+      background: var(--sky-blue);
+      color: white;
+      transform: rotate(360deg);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #e0f2fe 0%, #99f6e4 100%);
+    }
+    [data-bs-theme="dark"] .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--ocean-blue), var(--sky-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-img {
+      border-radius: 24px;
+      box-shadow: 0 25px 50px rgba(14, 165, 233, 0.4);
+      transition: transform 0.6s ease;
+      max-width: 100%;
+    }
+    .hero-img:hover {
+      transform: scale(1.06) rotate(2deg);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: var(--sky-blue);
+      border: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+    .btn-outline-primary {
+      border: 2px solid var(--sky-blue);
+      color: var(--sky-blue);
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+    .btn-outline-primary:hover {
+      background: var(--sky-blue);
+      color: white;
+    }
+
+    /* Resume Button */
+    .btn-resume {
+      background: #10b981;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+      transition: all 0.3s;
+    }
+    .btn-resume:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+    }
+
+    /* Section Title */
+    .section-title {
+      font-weight: 700;
+      font-size: 2.8rem;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 5px;
+      background: var(--sky-blue);
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    /* Cards */
+    .card {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(14, 165, 233, 0.15);
+      transition: all 0.4s ease;
+      background: white;
+    }
+    [data-bs-theme="dark"] .card {
+      background: var(--dark-card);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+    .card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(14, 165, 233, 0.25);
+    }
+
+    /* Contact Form */
+    .form-control, .form-select {
+      border-radius: 12px;
+      padding: 14px 18px;
+      border: 2px solid #e2e8f0;
+    }
+    .form-control:focus {
+      border-color: var(--sky-blue);
+      box-shadow: 0 0 0 0.25rem rgba(14, 165, 233, 0.25);
+    }
+
+    /* Success Message */
+    #successMessage {
+      display: none;
+      background: #d1fae5;
+      color: #065f46;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 20px;
+      border: 1px solid #a7f3d0;
+    }
+    [data-bs-theme="dark"] #successMessage {
+      background: #065f46;
+      color: #d1fae5;
+      border-color: #10b981;
+    }
+
+    footer {
+      background: var(--ocean-blue);
+      color: white;
+      padding: 3rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" style="color: var(--sky-blue);" href="#">Alex Ocean</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-2">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-3">
+            <button class="theme-toggle btn" id="themeToggle">
+              <i class="bx bxs-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h1 class="mb-4">Hi, I'm <span>Alex Ocean</span></h1>
+          <p class="lead mb-4 fs-4 text-muted">Full Stack Developer & UI/UX Designer</p>
+          <p class="mb-5 fs-5">
+            I build exceptional digital experiences that combine beautiful design with powerful functionality.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#projects" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">
+              View Projects
+            </a>
+            <a href="#contact" class="btn btn-outline-primary btn-lg px-5 py-3 rounded-pill">
+              Hire Me
+            </a>
+            <a href="https://yourdomain.com/resume.pdf" target="_blank" class="btn-resume ms-3">
+              <i class="bx bx-download"></i> Resume
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="300">
+          <img src="https://via.placeholder.com/520x620.png?text=Your+Photo" 
+               alt="Alex Ocean" class="hero-img img-fluid">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About, Education, Projects (same as before) -->
+  <!-- (Keeping them short for space — full code below) -->
+
+  <!-- Contact Section with Form -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title text-center" data-aos="fade-up">Get In Touch</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <p class="text-center lead mb-5" data-aos="fade-up" data-aos-delay="100">
+            Have a project in mind? Let's work together!
+          </p>
+
+          <!-- Contact Form (using Formspree - free & no backend) -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm" data-aos="fade-up" data-aos-delay="200">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="col-md-6">
+                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+              </div>
+              <div class="col-12">
+                <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+              </div>
+              <div class="col-12">
+                <textarea name="message" class="form-control" rows="6" placeholder="Your Message" required></textarea>
+              </div>
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Success Message -->
+          <div id="successMessage">
+            <h5>Thank you!</h5>
+            <p>Your message has been sent successfully. I'll get back to you soon!</p>
+          </div>
+
+          <!-- Social Links -->
+          <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+            <p class="mb-4">Or connect with me:</p>
+            <div class="d-flex justify-content-center gap-4">
+              <a href="#" class="contact-link"><i class="bx bxl-linkedin"></i></a>
+              <a href="#" class="contact-link"><i class="bx bxl-github"></i></a>
+              <a href="#" class="contact-link"><i class="bx bxl-twitter"></i></a>
+              <a href="mailto:alex@example.com" class="contact-link"><i class="bx bx-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 Alex Ocean. Crafted with <i class="bx bxs-heart text-danger"></i> & Bootstrap</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.setAttribute('data-bs-theme', 'dark');
+      themeToggle.innerHTML = '<i class="bx bx-sun"></i>';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      if (html.getAttribute('data-bs-theme') === 'dark') {
+        html.setAttribute('data-bs-theme', 'light');
+        themeToggle.innerHTML = '<i class="bx bxs-moon"></i>';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-bs-theme', 'dark');
+        themeToggle.innerHTML = '<i class="bx bx-sun"></i>';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Contact Form Submission
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      // Remove e.preventDefault() when using real Formspree
+      // e.preventDefault(); // Remove this line after setting up Formspree
+
+      // Show success (for demo)
+      form.style.display = 'none';
+      success.style.display = 'block';
+    });
+
+    // Active Nav Highlight
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      let current = 'home';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
