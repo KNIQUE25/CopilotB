@@ -4,21 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- favicon -->
-   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-   <!-- Google Font: Inter (Crystal Clear & Modern) -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!-- Google Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-
   <!-- Bootstrap 5.3 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-
   <!-- Box Icons -->
- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
-  <!-- CSS link -->
-   <link rel="stylesheet" href="/css/style.css">
-  <title>Bridgette Kimotho| Full Stack Developer</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- CSS link - Fixed path -->
+  <link rel="stylesheet" href="css/style.css">
+  <title>Bridgette Kimotho | Full Stack Developer</title>
 </head>
 <body>
 
@@ -29,15 +26,15 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse  navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav  ms-auto align-items-center gap-4">
-          <li><a class="nav-link active" href="#home">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#skill">Skills</a></li>
-          <li><a class="nav-link" href="#education">Education</a></li>
-          <li><a class="nav-link" href="#projects">Projects</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-          <li>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-3 gap-lg-4">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skill">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item">
             <button class="theme-toggle btn" id="themeToggle">
               <i class='bx bxs-moon'></i>
             </button>
@@ -47,61 +44,67 @@
     </div>
   </nav>
 
- <!-- Hero Section with Animated Particles Background -->
-<section id="home" class="hero position-relative">
-  <!-- Particles Background -->
-  <div id="particles-js" class="position-absolute top- start-0 w-100 h-100"></div>
+  <!-- Hero Section -->
+  <section id="home" class="hero position-relative">
+    <!-- Particles Background -->
+    <div id="particles-js" class="position-absolute top-0 start-0 w-100 h-100"></div>
 
-  <div class="container position-relative" style="z-index: 2;">
-    <div class="row align-items-center min-vh-100">
-      <div class="col-lg-6 mt-5 pt-5" data-aos="fade-right">
-        <h1 class="display-1 mb-4">Hi, I'm <span>Bridgette Kimotho</span></h1>
-        <p class="lead mb-4">Full Stack Developer & UI/UX Designer</p>
-        <p class="fs-5 mb-4">I create digital experiences that inspire, engage, and deliver results. Let's build something extraordinary together!</p>
-        
-        <!-- Inspiring Call-to-Action -->
-        <div class="inspiration-box p-4 mb-4 rounded">
-          <h4 class="mb-3">🚀 Ready to Bring Your Vision to Life?</h4>
-          <p class="mb-3">Let's collaborate to create solutions that drive success and make an impact.</p>
-          <div class="d-flex flex-wrap gap-3">
-            <a href="#contact" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
-              <i class="bx bx-rocket me-2"></i>Start Your Project
-            </a>
-            <a href="tel:+1234567890" class="btn btn-outline-primary btn-lg px-5 py-3 rounded-pill">
-              <i class="bx bx-phone me-2"></i>Call Me Now
-            </a>
-            <a href="resume.pdf" target="_blank" class="btn-resume ms-3">
-              <i class="bx bx-download"></i> Resume
-            </a>
+    <div class="container position-relative" style="z-index: 2;">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-6 mt-5 pt-5" data-aos="fade-right">
+          <h1 class="display-1 mb-4">Hi, I'm <span>Bridgette Kimotho</span></h1>
+          <p class="lead mb-4">Full Stack Developer & UI/UX Designer</p>
+          <p class="fs-5 mb-4">I create digital experiences that inspire, engage, and deliver results. Let's build something extraordinary together!</p>
+          
+          <!-- Call-to-Action -->
+          <div class="inspiration-box p-4 mb-4 rounded">
+            <h4 class="mb-3">🚀 Ready to Bring Your Vision to Life?</h4>
+            <p class="mb-3">Let's collaborate to create solutions that drive success and make an impact.</p>
+            <div class="d-flex flex-wrap gap-3 align-items-center">
+              <a href="#contact" class="btn btn-primary btn-lg px-4 py-3 rounded-pill">
+                <i class="bx bx-rocket me-2"></i>Start Your Project
+              </a>
+              <a href="tel:+254716006225" class="btn btn-outline-primary btn-lg px-4 py-3 rounded-pill">
+                <i class="bx bx-phone me-2"></i>Call Me Now
+              </a>
+             <a href="resume/Bridgette_Kimotho_Resume.pdf" 
+   download="Bridgette_Kimotho_Resume.pdf"
+   class="btn-resume px-4 py-3">
+  <i class="bx bx-download me-2"></i> Resume
+</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="300">
-        <img src="/images/Pasted image.png" height="260" width="250" alt="Bridgette" class="hero-img img-fluid">
+        <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+               alt="Bridgette Kimotho" 
+               class="hero-img img-fluid rounded-circle">
+        </div>
       </div>
     </div>
 
-    <!-- Floating Tech Icons -->
-    <div class="tech-circle" style=" z-index:-1;width:120px;height:120px;top:10%;left:10%;animation-delay:0s;">
-  <i class="bx bxl-html5"></i>
-</div>
-<div class="tech-circle" style="z-index:-2;width:100px;height:100px;top:30%;right:15%;animation-delay:1s;">
-  <i class="bx bxl-css3"></i>
-</div>
-<div class="tech-circle" style="z-index:-1;width:140px;height:140px;bottom:20%;left:15%;animation-delay:2s;">
-  <i class="bx bxl-javascript"></i>
-</div>
-<div class="tech-circle" style="z-index:-1;width:110px;height:110px;top:50%;right:10%;animation-delay:3s;">
-  <i class="bx bxl-react"></i>
-</div>
-<div class="tech-circle" style="z-index:-1;width:130px;height:130px;bottom:10%;right:20%;animation-delay:4s;">
-  <i class="bx bxl-nodejs"></i>
-</div>
-<div class="tech-circle" style="z-index:-1;width:120px;height:120px;top:10%;right:20%;animation-delay:5s;">
-  <i class="bx bxl-php"></i>
-</div>
-  </div>
-</section>
+    <!-- Floating Tech Icons - Fixed z-index -->
+    <div class="tech-circles-container">
+      <div class="tech-circle" style="top:10%;left:5%;">
+        <i class="bx bxl-html5"></i>
+      </div>
+      <div class="tech-circle" style="top:20%;right:10%;">
+        <i class="bx bxl-css3"></i>
+      </div>
+      <div class="tech-circle" style="bottom:30%;left:10%;">
+        <i class="bx bxl-javascript"></i>
+      </div>
+      <div class="tech-circle" style="top:40%;right:5%;">
+        <i class="bx bxl-react"></i>
+      </div>
+      <div class="tech-circle" style="bottom:15%;right:15%;">
+        <i class="bx bxl-nodejs"></i>
+      </div>
+      <div class="tech-circle" style="top:15%;right:25%;">
+        <i class="bx bxl-python"></i>
+      </div>
+    </div>
+  </section>
 
   <!-- About Section -->
   <section id="about" class="py-5">
@@ -109,19 +112,22 @@
       <h2 class="section-title" data-aos="fade-up">About Me</h2>
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="200">
-          <p class="lead">I'm a passionate Full Stack Developer who loves turning ideas into reality through clean code and beautiful design.</p>
+          <p class="lead about-text">I'm a passionate Full Stack Developer who loves turning ideas into reality through clean code and beautiful design.</p>
           <div class="row mt-5">
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
               <i class="bx bx-code fs-1 text-primary mb-3"></i>
               <h5>Clean Code</h5>
+              <p class="small">Writing efficient, maintainable code</p>
             </div>
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
               <i class="bx bx-palette fs-1 text-primary mb-3"></i>
               <h5>Creative Design</h5>
+              <p class="small">Beautiful, user-centered interfaces</p>
             </div>
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
               <i class="bx bx-rocket fs-1 text-primary mb-3"></i>
               <h5>Fast Delivery</h5>
+              <p class="small">Timely project completion</p>
             </div>
           </div>
         </div>
@@ -129,83 +135,84 @@
     </div>
   </section>
 
-       <!-- Skills Section -->
-<section id="skill" class="py-5">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">My Skills</h2>
-    
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <!-- Technical Skills -->
-        <h4 class="mb-4 text-center" data-aos="fade-up" data-aos-delay="100">Technical Skills</h4>
-        
-        <div class="mb-5">
-          <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="200">
-            <div class="d-flex justify-content-between mb-2">
-              <span class="fw-bold">HTML & CSS</span>
-              <span>95%</span>
+  <!-- Skills Section -->
+  <section id="skill" class="py-5">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">My Skills</h2>
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <!-- Technical Skills -->
+          <h4 class="mb-4 text-center" data-aos="fade-up" data-aos-delay="100">Technical Skills</h4>
+          
+          <div class="mb-5">
+            <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="200">
+              <div class="d-flex justify-content-between mb-2">
+                <span class="fw-bold">HTML & CSS</span>
+                <span>95%</span>
+              </div>
+              <div class="progress-bg">
+                <div class="progress-fill html-css" data-width="95"></div>
+              </div>
             </div>
-            <div class="progress-bg">
-              <div class="progress-fill html-css" data-width="95"></div>
-            </div>
-          </div>
 
-          <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="300">
-            <div class="d-flex justify-content-between mb-2">
-              <span class="fw-bold">JavaScript</span>
-              <span>90%</span>
+            <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="300">
+              <div class="d-flex justify-content-between mb-2">
+                <span class="fw-bold">JavaScript</span>
+                <span>90%</span>
+              </div>
+              <div class="progress-bg">
+                <div class="progress-fill js" data-width="90"></div>
+              </div>
             </div>
-            <div class="progress-bg">
-              <div class="progress-fill js" data-width="90"></div>
-            </div>
-          </div>
 
-          <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="400">
-            <div class="d-flex justify-content-between mb-2">
-              <span class="fw-bold">React / Next.js</span>
-              <span>88%</span>
+            <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="400">
+              <div class="d-flex justify-content-between mb-2">
+                <span class="fw-bold">React / Next.js</span>
+                <span>88%</span>
+              </div>
+              <div class="progress-bg">
+                <div class="progress-fill react" data-width="88"></div>
+              </div>
             </div>
-            <div class="progress-bg">
-              <div class="progress-fill react" data-width="88"></div>
-            </div>
-          </div>
 
-          <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="500">
-            <div class="skill-name d-flex justify-content-between mb-2">
-              <span class="fw-bold">Node.js & Express</span>
-              <span>82%</span>
+            <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="500">
+              <div class="d-flex justify-content-between mb-2">
+                <span class="fw-bold">Node.js & Express</span>
+                <span>82%</span>
+              </div>
+              <div class="progress-bg">
+                <div class="progress-fill node" data-width="82"></div>
+              </div>
             </div>
-            <div class="progress-bg">
-              <div class="progress-fill node" data-width="82"></div>
-            </div>
-          </div>
 
-          <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="600">
-            <div class="d-flex justify-content-between mb-2">
-              <span class="fw-bold">MongoDB / PostgreSQL</span>
-              <span>85%</span>
-            </div>
-            <div class="progress-bg">
-              <div class="progress-fill db" data-width="85"></div>
+            <div class="skill-item mb-4" data-aos="fade-right" data-aos-delay="600">
+              <div class="d-flex justify-content-between mb-2">
+                <span class="fw-bold">MongoDB / PostgreSQL</span>
+                <span>85%</span>
+              </div>
+              <div class="progress-bg">
+                <div class="progress-fill db" data-width="85"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      
+      <!-- Professional Skills -->
+      <div class="mt-5" data-aos="fade-up" data-aos-delay="900">
+        <h4 class="text-center mb-4">Professional Skills</h4>
+        <ul class="professional-skills">
+          <li data-aos="zoom-in" data-aos-delay="1000">Problem Solving</li>
+          <li data-aos="zoom-in" data-aos-delay="1100">Team Collaboration</li>
+          <li data-aos="zoom-in" data-aos-delay="1200">Project Management</li>
+          <li data-aos="zoom-in" data-aos-delay="1300">Communication</li>
+          <li data-aos="zoom-in" data-aos-delay="1400">Adaptability</li>
+          <li data-aos="zoom-in" data-aos-delay="1500">Time Management</li>
+        </ul>
+      </div>
     </div>
-    <!-- Professional Skills -->
-        <section class="mt-5" data-aos="fade-up" data-aos-delay="900">
-            <h2 class="section-title">Professional Skills</h2>
-            <ul class="professional-skills">
-                <li data-aos="zoom-in" data-aos-delay="1000">Problem Solving</li>
-                <li data-aos="zoom-in" data-aos-delay="1100">Team Collaboration</li>
-                <li data-aos="zoom-in" data-aos-delay="1200">Project Management</li>
-                <li data-aos="zoom-in" data-aos-delay="1300">Communication</li>
-                <li data-aos="zoom-in" data-aos-delay="1400">Adaptability</li>
-                <li data-aos="zoom-in" data-aos-delay="1500">Time Management</li>
-            </ul>
-        </section>
-  </div>
-</section>
+  </section>
 
   <!-- Education Section -->
   <section id="education" class="py-5 bg-light">
@@ -213,26 +220,68 @@
       <h2 class="section-title" data-aos="fade-up">Education</h2>
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <div class="card mb-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-body p-4">
-              <h5>Bootcamp</h5>
-              <p class="text-primary">Institute of Software Development • 2025 - 2026</p>
-              <p>Graduated with First Class Honors • GPA: 3.9/4.0</p>
+          <div class="education-timeline">
+            
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="timeline-icon">
+                <i class="bx bxs-graduation text-primary fs-3"></i>
+              </div>
+              <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title fw-bold mb-0">Software Development Bootcamp</h5>
+                    <span class="badge bg-primary rounded-pill">2025 - 2026</span>
+                  </div>
+                  <p class="text-muted mb-2">
+                    <i class="bx bxs-school me-2"></i>Institute of Software Development
+                  </p>
+                  <p class="mb-0">
+                    <i class="bx bxs-award text-warning me-2"></i>Graduated with First Class Honors • GPA: 3.9/4.0
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="card" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-body p-4">
-              <h5>Diploma of Software Development</h5>
-              <p class="text-primary">Institute of Software Development • 2025</p>
-              <p>Mastered MERN Stack, Next.js, and modern web technologies</p>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="timeline-icon">
+                <i class="bx bxs-certification text-primary fs-3"></i>
+              </div>
+              <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title fw-bold mb-0">Diploma in Software Development</h5>
+                    <span class="badge bg-primary rounded-pill">2025</span>
+                  </div>
+                  <p class="text-muted mb-2">
+                    <i class="bx bxs-school me-2"></i>Institute of Software Development
+                  </p>
+                  <p class="mb-0">
+                    <i class="bx bxs-check-circle text-success me-2"></i>Mastered MERN Stack, Next.js, and modern web technologies
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="card mb-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="card-body p-4">
-              <h5>Certificate of Software Development</h5>
-              <p class="text-primary">Institute of Software Development • 2025</p>
-              <p>Mastered Basic HTML,CSS and PHP </p>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="timeline-icon">
+                <i class="bx bxs-certificate text-primary fs-3"></i>
+              </div>
+              <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <h5 class="card-title fw-bold mb-0">Certificate in Software Development</h5>
+                    <span class="badge bg-primary rounded-pill">2025</span>
+                  </div>
+                  <p class="text-muted mb-2">
+                    <i class="bx bxs-school me-2"></i>Institute of Software Development
+                  </p>
+                  <p class="mb-0">
+                    <i class="bx bxs-check-circle text-success me-2"></i>Mastered Basic HTML, CSS and JavaScript
+                  </p>
+                </div>
+              </div>
             </div>
+            
           </div>
         </div>
       </div>
@@ -246,10 +295,12 @@
       <div class="row g-4">
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="card h-100 project-card">
-            <img src="/images/e-commerce-grow-online-shopping-flat-illustration-vector.jpg" class="card-img-top" alt="Project">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 class="card-img-top project-img" 
+                 alt="E-Commerce Platform">
             <div class="card-body d-flex flex-column p-4">
-              <h5>E-Commerce Platform</h5>
-              <p>Full-stack store with Stripe payments, admin panel, and user auth.</p>
+              <h5 class="fw-bold">E-Commerce Platform</h5>
+              <p class="project-description">Full-stack store with Stripe payments, admin panel, and user authentication.</p>
               <div class="mt-auto">
                 <span class="badge me-2">React</span>
                 <span class="badge me-2">Node.js</span>
@@ -262,12 +313,15 @@
             </div>
           </div>
         </div>
+        
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
           <div class="card h-100 project-card">
-            <img src="/images/Dashboard-Task-Management-Web-App-UI-Kit-1.webp" class="card-img-top" alt="Project">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 class="card-img-top project-img" 
+                 alt="Task Management App">
             <div class="card-body d-flex flex-column p-4">
-              <h5>TaskFlow Pro</h5>
-              <p>Real-time collaborative task manager with drag & drop.</p>
+              <h5 class="fw-bold">TaskFlow Pro</h5>
+              <p class="project-description">Real-time collaborative task manager with drag & drop functionality.</p>
               <div class="mt-auto">
                 <span class="badge me-2">Next.js</span>
                 <span class="badge me-2">Prisma</span>
@@ -280,30 +334,15 @@
             </div>
           </div>
         </div>
+        
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
           <div class="card h-100 project-card">
-            <img src="/images/forecast-cartoon-smartphone-interface-templates-set-overcast-for-climate-mobile-app-screen-page-day-and-dark-mode-design-weather-ui-for-application-phone-display-with-flat-character-vector.jpg" class="card-img-top" alt="Project">
+            <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                 class="card-img-top project-img" 
+                 alt="Weather Dashboard">
             <div class="card-body d-flex flex-column p-4">
-              <h5>Weather Dashboard</h5>
-              <p>Beautiful weather app with forecasts and geolocation.</p>
-              <div class="mt-auto">
-                <span class="badge me-2">React</span>
-                <span class="badge me-2">Chart.js</span>
-                <span class="badge">API</span>
-              </div>
-              <div class="project-links mt-3">
-                <a href="#" class="btn btn-sm btn-primary me-2"><i class="bx bx-link-external me-1"></i>Live Demo</a>
-                <a href="#" class="btn btn-sm btn-outline-primary"><i class="bx bxl-github me-1"></i>GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="card h-100 project-card">
-            <img src="/images/weather app.png" class="card-img-top" alt="Project">
-            <div class="card-body d-flex flex-column p-4">
-              <h5>Weather Dashboard</h5>
-              <p>Beautiful weather app with forecasts and geolocation.</p>
+              <h5 class="fw-bold">Weather Dashboard</h5>
+              <p class="project-description">Beautiful weather app with forecasts and geolocation features.</p>
               <div class="mt-auto">
                 <span class="badge me-2">React</span>
                 <span class="badge me-2">Chart.js</span>
@@ -325,15 +364,15 @@
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
       <div class="row">
-        <!-- Contact Info Left Side -->
-        <div class="col-lg-4 mb-5" data-aos="fade-right">
+        <!-- Contact Info -->
+        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
           <div class="contact-info">
             <h4 class="mb-4">Let's Connect!</h4>
             <p class="mb-4">I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
             
             <div class="contact-item mb-3">
               <i class="bx bx-phone text-primary me-3"></i>
-              <span>+254 716006225</span>
+              <span>+254 716 006 225</span>
             </div>
             <div class="contact-item mb-3">
               <i class="bx bx-envelope text-primary me-3"></i>
@@ -351,15 +390,14 @@
                 <a href="#" class="social-link"><i class="bx bxl-github"></i></a>
                 <a href="#" class="social-link"><i class="bx bxl-twitter"></i></a>
                 <a href="#" class="social-link"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="social-link"><i class="bx bxl-facebook"></i></a>
               </div>
             </div>
           </div>
         </div>
         
-        <!-- Contact Form Right Side -->
+        <!-- Contact Form -->
         <div class="col-lg-8" data-aos="fade-left" data-aos-delay="200">
-          <form action="" method="POST" id="contactForm" class="mb-5">
+          <form id="contactForm" class="mb-5">
             <div class="row g-4">
               <div class="col-md-6">
                 <input type="text" name="name" class="form-control form-control-lg" placeholder="Your Name" required>
@@ -375,21 +413,21 @@
               </div>
               <div class="col-12 text-center">
                 <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
-                 <i class='bx bxs-paper-plane'></i>Send Message
+                  <i class='bx bxs-paper-plane me-2'></i>Send Message
                 </button>
               </div>
             </div>
           </form>
           <div id="successMessage" class="text-center bg-success text-white p-4 rounded" style="display:none;">
             <h4>Thank You!</h4>
-            <p>Your message has been sent successfully.</p>
+            <p>Your message has been sent successfully. I'll get back to you soon!</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Extended Footer -->
+  <!-- Footer -->
   <footer class="text-center">
     <div class="container">
       <div class="row">
@@ -420,8 +458,8 @@
       
       <div class="border-top pt-4 mt-4">
         <div class="mb-4">
-          <a href="#" class="social-link"><i class='bx bxl-linkedin text-blue'></i></a>
-          <a href="#" class="social-link"><i class='bx bxl-github text-black'></i></a>
+          <a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>
+          <a href="#" class="social-link"><i class='bx bxl-github'></i></a>
           <a href="#" class="social-link"><i class='bx bxl-twitter'></i></a>
           <a href="#" class="social-link"><i class='bx bxl-instagram'></i></a>
           <a href="#" class="social-link"><i class='bx bx-envelope'></i></a>
@@ -432,13 +470,11 @@
     </div>
   </footer>
 
- <!-- Particles.js for animated background -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-<!-- Your existing scripts -->
- <script src="/JS/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
 </html>
