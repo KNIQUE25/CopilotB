@@ -36,55 +36,32 @@ if (themeToggle) {
 
 // Progress bars — reliable animation
 function initProgressBars() {
-    const bars = document.querySelectorAll('.progress-fill');
-    if (!bars.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const bar = entry.target;
-                const w = bar.dataset.width || '0';
-                
-                bar.style.width = '0%';
-                bar.offsetHeight; // force reflow
-                
-                setTimeout(() => {
-                    bar.style.width = w + '%';
-                    bar.classList.add('animated');
-                }, 150);
-
-                observer.unobserve(bar);
-            }
-        });
-    }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
-
-    bars.forEach(bar => observer.observe(bar));
+    document.querySelectorAll('.progress-fill').forEach(bar => {
+        const width = bar.dataset.width || '0';
+        // small delay so it animates even on fast scroll
+        setTimeout(() => {
+            bar.style.width = width + '%';
+        }, 300);
+    });
 }
 
-// Particles — safer load + fallback
 function initParticles() {
     const container = document.getElementById('particles-js');
     if (!container) return;
 
-    if (typeof particlesJS === 'undefined') {
-        console.warn('particles.js not loaded — retrying...');
-        setTimeout(initParticles, 600);
-        return;
-    }
-
-    particlesJS('particles-js', {
+    tsParticles.load("particles-js", {
         particles: {
             number: { value: 60, density: { enable: true, value_area: 800 } },
-            color: { value: '#ffffff' },
-            shape: { type: 'circle' },
+            color: { value: "#ffffff" },
+            shape: { type: "circle" },
             opacity: { value: 0.5, random: true },
             size: { value: 3, random: true },
-            line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
-            move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false }
+            line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
         },
         interactivity: {
-            detect_on: 'canvas',
-            events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true }
+            detectsOn: "canvas",
+            events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" }, resize: true }
         },
         retina_detect: true
     });
@@ -159,10 +136,40 @@ window.addEventListener('scroll', () => {
 });
 
 // Start everything
+// At the start of DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
-    initProgressBars();
-    initParticles();
-    initContactForm();
-    initSmoothScroll();
+    try {
+        initTheme();
+        initProgressBars();
+        initParticles();
+        initContactForm();
+        initSmoothScroll();
+        
+        // Initialize AOS if available
+        if (typeof AOS !== 'undefined') {
+            AOS.init({ 
+                duration: 1000, 
+                once: true,
+                offset: 100 
+            });
+        }
+    } catch (error) {
+        console.error('Error initializing scripts:', error);
+    }
 });
+
+// Check for missing elements in initProgressBars
+function initProgressBars() {
+    const progressBars = document.querySelectorAll('.progress-fill');
+    if (progressBars.length === 0) {
+        console.warn('No progress bars found');
+        return;
+    }
+    
+    progressBars.forEach(bar => {
+        const width = bar.dataset.width || '0';
+        setTimeout(() => {
+            bar.style.width = width + '%';
+        }, 300);
+    });
+}
