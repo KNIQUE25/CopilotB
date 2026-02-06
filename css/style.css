@@ -376,55 +376,127 @@ section {
     color: var(--text-dark) !important;
 }
 
-/* Progress Bars */
-.progress-bg {
-    height: 14px;
-    background: #e2e8f0;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
+/* Skills Section Styles */
+.skill-category {
+    margin-bottom: 3rem;
 }
 
-[data-bs-theme="dark"] .progress-bg {
-    background: #334155;
+.skill-header {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
 }
 
-.progress-fill {
+[data-bs-theme="dark"] .skill-header {
+    border-bottom-color: #334155;
+}
+
+.skill-card {
+    transition: all 0.3s ease;
     height: 100%;
-    background: linear-gradient(90deg, var(--primary-blue), var(--accent-pink));
-    border-radius: 10px;
-    width: 0;
-    transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.progress-fill.animated {
-    animation: progressFill 1.5s ease-out forwards;
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(10, 49, 128, 0.15) !important;
 }
 
-@keyframes progressFill {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: var(--target-width);
-    }
+.skill-card.border-primary {
+    border-left-color: var(--primary-blue) !important;
 }
 
-.skill-item {
-    margin-bottom: 2rem;
+.skill-card.border-secondary {
+    border-left-color: var(--accent-pink) !important;
 }
 
-.skill-item span {
-    font-weight: 600 !important;
+[data-bs-theme="dark"] .skill-card {
+    background: var(--dark-card) !important;
+    color: var(--text-dark) !important;
 }
 
-.skill-item span:last-child {
-    color: var(--primary-blue) !important;
+.skill-tag {
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
 }
 
-[data-bs-theme="dark"] .skill-item span:last-child {
-    color: var(--accent-pink) !important;
+[data-bs-theme="dark"] .skill-tag {
+    background: #1a1a2e !important;
+    border-color: #334155;
+    color: var(--text-dark) !important;
+}
+
+.skill-tag:hover {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-pink)) !important;
+    color: white !important;
+    border-color: transparent;
+    transform: translateY(-3px);
+}
+
+.skill-tag:hover i,
+.skill-tag:hover h6 {
+    color: white !important;
+}
+
+.skill-tag i {
+    color: var(--primary-blue);
+    transition: all 0.3s ease;
+}
+
+[data-bs-theme="dark"] .skill-tag i {
+    color: var(--accent-pink);
+}
+
+.skill-tag h6 {
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+[data-bs-theme="dark"] .skill-tag h6 {
+    color: var(--text-dark);
+}
+
+/* Approach Box */
+.approach-box {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-pink));
+    box-shadow: 0 15px 40px rgba(10, 49, 128, 0.2);
+}
+
+.approach-box i {
+    color: #ffd700;
+}
+
+/* Remove old progress bar styles and add new ones */
+.progress-bg,
+.progress-fill {
+    display: none;
+}
+
+/* Professional Skills List Update */
+.professional-skills {
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.professional-skills li {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-pink));
+    color: white !important;
+    border: none !important;
+    padding: 0.8rem 1.8rem;
+    font-weight: 600;
+    box-shadow: 0 6px 20px rgba(166, 15, 118, 0.2);
+}
+
+[data-bs-theme="dark"] .professional-skills li {
+    background: linear-gradient(135deg, var(--accent-pink), var(--primary-blue));
+}
+
+.professional-skills li:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(166, 15, 118, 0.3);
+}
+
+/* Section title adjustment for skills */
+#skill .section-title {
+    margin-bottom: 4rem;
 }
 
 /* Professional Skills */
