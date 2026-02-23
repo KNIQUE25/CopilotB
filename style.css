@@ -231,7 +231,7 @@ section {
 
 .btn-outline-primary {
     border: 2px solid var(--primary-blue);
-    color: var(--primary-blue);
+    color: var(white)!important;
     font-weight: 600;
     padding: 0.75rem 2rem;
 }
@@ -280,7 +280,7 @@ section {
 .hero-img {
     border-radius: 30px;
     box-shadow: 0 30px 60px rgba(166, 15, 118, 0.4);
-    border: 8px solid white;
+    border: 5px solid white;
     transition: transform 0.6s ease;
     max-width: 100%;
     height: auto;
@@ -478,7 +478,7 @@ section {
 
 .professional-skills li {
     background: linear-gradient(135deg, var(--primary-blue), var(--accent-pink));
-    color: white !important;
+    color: #181515 !important;
     border: none !important;
     padding: 0.8rem 1.8rem;
     font-weight: 600;
