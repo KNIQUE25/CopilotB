@@ -28,6 +28,7 @@ body {
     color: var(--text-light);
     transition: all 0.5s ease;
     overflow-x: hidden;
+    padding-top: 80px;
 }
 
 [data-bs-theme="dark"] body {
@@ -172,6 +173,7 @@ section {
 
 [data-bs-theme="dark"] #particles-js {
     filter: brightness(0.7) contrast(1.1);
+    opacity: 0.85;
 }
 
 .hero h1 {
@@ -231,7 +233,7 @@ section {
 
 .btn-outline-primary {
     border: 2px solid var(--primary-blue);
-    color: var(white)!important;
+    color: var(--primary-blue);
     font-weight: 600;
     padding: 0.75rem 2rem;
 }
@@ -338,7 +340,7 @@ section {
     }
 }
 
-/* Section Titles */
+/* About Section */
 .section-title {
     font-size: 3rem !important;
     font-weight: 800 !important;
@@ -364,7 +366,6 @@ section {
     border-radius: 3px;
 }
 
-/* About Section */
 .about-text {
     font-size: 1.2rem !important;
     line-height: 1.8;
@@ -376,7 +377,7 @@ section {
     color: var(--text-dark) !important;
 }
 
-/* Skills Section Styles */
+/* Skills Section */
 .skill-category {
     margin-bottom: 3rem;
 }
@@ -402,10 +403,12 @@ section {
 
 .skill-card.border-primary {
     border-left-color: var(--primary-blue) !important;
+    border-left-width: 4px !important;
 }
 
 .skill-card.border-secondary {
     border-left-color: var(--accent-pink) !important;
+    border-left-width: 4px !important;
 }
 
 [data-bs-theme="dark"] .skill-card {
@@ -419,7 +422,7 @@ section {
 }
 
 [data-bs-theme="dark"] .skill-tag {
-    background: #1a1a2e !important;
+    background: var(--dark-card) !important;
     border-color: #334155;
     color: var(--text-dark) !important;
 }
@@ -458,31 +461,34 @@ section {
 .approach-box {
     background: linear-gradient(135deg, var(--primary-blue), var(--accent-pink));
     box-shadow: 0 15px 40px rgba(10, 49, 128, 0.2);
+    border-radius: 1rem !important;
 }
 
 .approach-box i {
     color: #ffd700;
 }
 
-/* Remove old progress bar styles and add new ones */
-.progress-bg,
-.progress-fill {
-    display: none;
-}
-
-/* Professional Skills List Update */
+/* Professional Skills List */
 .professional-skills {
-    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
 }
 
 .professional-skills li {
     background: linear-gradient(135deg, var(--primary-blue), var(--accent-pink));
-    color: #181515 !important;
+    color: white !important;
     border: none !important;
     padding: 0.8rem 1.8rem;
+    border-radius: 50px;
     font-weight: 600;
     box-shadow: 0 6px 20px rgba(166, 15, 118, 0.2);
+    transition: all 0.3s ease;
+    cursor: default;
 }
 
 [data-bs-theme="dark"] .professional-skills li {
@@ -492,47 +498,6 @@ section {
 .professional-skills li:hover {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 10px 30px rgba(166, 15, 118, 0.3);
-}
-
-/* Section title adjustment for skills */
-#skill .section-title {
-    margin-bottom: 4rem;
-}
-
-/* Professional Skills */
-.professional-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.professional-skills li {
-    background: white;
-    border: 1px solid #e2e8f0;
-    color: var(--primary-blue);
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: default;
-}
-
-[data-bs-theme="dark"] .professional-skills li {
-    background: var(--dark-card);
-    color: var(--accent-pink);
-    border-color: #334155;
-}
-
-.professional-skills li:hover {
-    transform: translateY(-5px);
-    background: linear-gradient(135deg, var(--primary-blue), var(--accent-pink));
-    color: white !important;
-    box-shadow: 0 8px 25px rgba(166, 15, 118, 0.3);
 }
 
 /* Education Timeline */
@@ -648,16 +613,12 @@ section {
     color: var(--text-dark) !important;
 }
 
-.project-links {
-    opacity: 1;
-    transition: opacity 0.3s ease;
-}
-
 .badge {
     background: linear-gradient(135deg, var(--primary-blue), var(--accent-pink)) !important;
     font-weight: 600;
     padding: 0.5rem 1rem;
     border-radius: 20px;
+    color: white;
 }
 
 /* Contact Section */
@@ -719,6 +680,7 @@ section {
 .contact-item i {
     font-size: 1.5rem;
     margin-right: 1rem;
+    color: var(--primary-blue);
 }
 
 .contact-item span {
@@ -757,7 +719,8 @@ section {
 }
 
 /* Form Styles */
-.form-control {
+.form-control,
+.form-select {
     background-color: white !important;
     color: var(--text-light) !important;
     border: 1px solid #e2e8f0 !important;
@@ -766,26 +729,31 @@ section {
     transition: all 0.3s ease;
 }
 
-[data-bs-theme="dark"] .form-control {
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select {
     background-color: #1a1a2e !important;
     color: var(--text-dark) !important;
     border: 1px solid #334155 !important;
 }
 
-.form-control::placeholder {
+.form-control::placeholder,
+.form-select::placeholder {
     color: var(--muted-light) !important;
 }
 
-[data-bs-theme="dark"] .form-control::placeholder {
+[data-bs-theme="dark"] .form-control::placeholder,
+[data-bs-theme="dark"] .form-select::placeholder {
     color: var(--muted-dark) !important;
 }
 
-.form-control:focus {
+.form-control:focus,
+.form-select:focus {
     border-color: var(--primary-blue) !important;
     box-shadow: 0 0 0 0.25rem rgba(10, 49, 128, 0.25) !important;
 }
 
-[data-bs-theme="dark"] .form-control:focus {
+[data-bs-theme="dark"] .form-control:focus,
+[data-bs-theme="dark"] .form-select:focus {
     border-color: var(--accent-pink) !important;
     box-shadow: 0 0 0 0.25rem rgba(166, 15, 118, 0.25) !important;
 }
@@ -865,6 +833,16 @@ footer .social-link:hover {
 }
 
 /* Responsive Design */
+@media (max-width: 991px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .hero {
+        min-height: calc(100vh - 70px);
+    }
+}
+
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem !important;
@@ -928,28 +906,5 @@ footer .social-link:hover {
     .btn-lg {
         padding: 0.5rem 1.5rem !important;
         font-size: 1rem !important;
-    }
-}
-
-/* Prevent fixed navbar from covering content when jumping to sections */
-body {
-    padding-top: 80px;
-    /* ≈ navbar height — adjust if needed */
-}
-
-/* Better particles in dark mode */
-[data-bs-theme="dark"] #particles-js {
-    filter: brightness(0.75) contrast(1.15);
-    opacity: 0.85;
-}
-
-/* Make sure hero content isn't hidden under navbar on small screens */
-@media (max-width: 991px) {
-    body {
-        padding-top: 70px;
-    }
-
-    .hero {
-        min-height: calc(100vh - 70px);
     }
 }

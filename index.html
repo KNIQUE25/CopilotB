@@ -487,9 +487,17 @@
               <div class="col-md-6">
                 <input type="email" name="email" class="form-control form-control-lg" placeholder="Your Email" required>
               </div>
-              <div class="col-12">
-                <input type="text" name="subject" class="form-control form-control-lg" placeholder="Subject" required>
-              </div>
+               <div class="col-12">
+              <select name="subject" class="form-select form-select-lg" required>
+                <option value="" disabled selected>Select Subject</option>
+                <option value="Website Development">Website Development</option>
+                <option value="Social Media Management">Social Media Management</option>
+                <option value="Consulting">Consulting</option>
+                <option value="Mobile App Development">Mobile App Development</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
               <div class="col-12">
                 <textarea name="message" class="form-control form-control-lg" rows="6" placeholder="Your Message" required></textarea>
               </div>
