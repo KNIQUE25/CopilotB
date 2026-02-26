@@ -34,63 +34,88 @@ if (themeToggle) {
     });
 }
 
-// Progress bars — reliable animation
-function initProgressBars() {
-    document.querySelectorAll('.progress-fill').forEach(bar => {
-        const width = bar.dataset.width || '0';
-        // small delay so it animates even on fast scroll
-        setTimeout(() => {
-            bar.style.width = width + '%';
-        }, 300);
-    });
-}
 
-function initParticles() {
-    const container = document.getElementById('particles-js');
-    if (!container) return;
 
-    tsParticles.load("particles-js", {
-        particles: {
-            number: { value: 60, density: { enable: true, value_area: 800 } },
-            color: { value: "#ffffff" },
-            shape: { type: "circle" },
-            opacity: { value: 0.5, random: true },
-            size: { value: 3, random: true },
-            line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-            move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
-        },
-        interactivity: {
-            detectsOn: "canvas",
-            events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" }, resize: true }
-        },
-        retina_detect: true
-    });
-}
 
-// Contact form (fake submission → success)
+
+// Contact Form
 function initContactForm() {
     const form = document.getElementById('contactForm');
-    const success = document.getElementById('successMessage');
+    const submitBtn = document.getElementById('submitBtn');
+    const formMessage = document.getElementById('formMessage');
+    
     if (!form) return;
 
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        form.style.opacity = '0.4';
-        form.style.pointerEvents = 'none';
-
-        setTimeout(() => {
-            form.reset();
-            form.style.display = 'none';
-            success.style.display = 'block';
-
-            setTimeout(() => {
-                success.style.display = 'none';
-                form.style.display = 'block';
-                form.style.opacity = '1';
-                form.style.pointerEvents = 'auto';
-            }, 5500);
-        }, 1400);
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="bx bx-loader-alt bx-spin me-2"></i>Sending...';
+        
+        // Get form data
+        const formData = {
+            timestamp: new Date().toLocaleString(),
+            name: form.querySelector('[name="name"]').value,
+            email: form.querySelector('[name="email"]').value,
+            subject: form.querySelector('[name="subject"]').value,
+            message: form.querySelector('[name="message"]').value,
+            status: 'new'
+        };
+        
+        try {
+            const SHEETDB_URL = 'https://sheetdb.io/api/v1/cdbxrn9dh2asa';
+            
+            const response = await fetch(SHEETDB_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ data: [formData] })
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok) {
+                showMessage('success', 'Thank you! Your message has been sent.');
+                form.reset();
+            } else {
+                throw new Error('Submission failed');
+            }
+            
+        } catch (error) {
+            console.error('Error:', error);
+            showMessage('error', 'Something went wrong. Please try again or email me directly.');
+            
+            // Fallback: mailto link
+            const mailtoLink = `mailto:kimothobridgette@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=Name: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}%0A%0A${encodeURIComponent(formData.message)}`;
+            
+            if (confirm('Would you like to send via email instead?')) {
+                window.location.href = mailtoLink;
+            }
+            
+        } finally {
+            // Restore button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        }
     });
+}
+
+// Helper function to show messages
+function showMessage(type, text) {
+    const msgDiv = document.getElementById('formMessage');
+    if (!msgDiv) return;
+    
+    msgDiv.className = `text-center p-4 rounded ${type === 'success' ? 'bg-success text-white' : 'bg-danger text-white'}`;
+    msgDiv.innerHTML = `<h4>${type === 'success' ? '✓' : '✗'}</h4><p>${text}</p>`;
+    msgDiv.style.display = 'block';
+    
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+        msgDiv.style.display = 'none';
+    }, 5000);
 }
 
 // Smooth scroll + active nav
@@ -140,8 +165,6 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
     try {
         initTheme();
-        initProgressBars();
-        initParticles();
         initContactForm();
         initSmoothScroll();
         
@@ -158,18 +181,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Check for missing elements in initProgressBars
-function initProgressBars() {
-    const progressBars = document.querySelectorAll('.progress-fill');
-    if (progressBars.length === 0) {
-        console.warn('No progress bars found');
-        return;
-    }
-    
-    progressBars.forEach(bar => {
-        const width = bar.dataset.width || '0';
-        setTimeout(() => {
-            bar.style.width = width + '%';
-        }, 300);
-    });
-}

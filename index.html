@@ -23,7 +23,7 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg fixed-top justify-content-end align-items-end" >
     <div class="container">
       <a class="navbar-brand" href="#home">Bridgette Kimotho</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -70,8 +70,8 @@
               <a href="tel:+254716006225" class="btn btn-outline-primary btn-lg px-4 py-3 rounded-pill">
                 <i class="bx bx-phone me-2"></i>Call Me Now
               </a>
-           <a href="resume/Bridgette_Kimotho_Resume.pdf" 
-   download="Bridgette_Kimotho_Resume.pdf"
+           <a href="BRIDGETTE KIMOTHO CV .pdf" 
+   download="BRIDGETTE KIMOTHO CV .pdf"
    class="btn btn-resume px-4 py-3">
    <i class="bx bx-download me-2"></i>Download Resume
 </a>
@@ -269,6 +269,18 @@
                 </div>
             </div>
         </div>
+         <!-- Professional Skills -->
+      <div class="mt-5" data-aos="fade-up" data-aos-delay="900">
+        <h4 class="text-center mb-4">Professional Skills</h4>
+        <ul class="professional-skills">
+          <li data-aos="zoom-in" data-aos-delay="1000">Problem Solving</li>
+          <li data-aos="zoom-in" data-aos-delay="1100">Team Collaboration</li>
+          <li data-aos="zoom-in" data-aos-delay="1200">Project Management</li>
+          <li data-aos="zoom-in" data-aos-delay="1300">Communication</li>
+          <li data-aos="zoom-in" data-aos-delay="1400">Adaptability</li>
+          <li data-aos="zoom-in" data-aos-delay="1500">Time Management</li>
+        </ul>
+      </div>
         
         <!-- Approach Section -->
         <div class="row mt-5 pt-4" data-aos="fade-up" data-aos-delay="400">
@@ -281,20 +293,9 @@
         </div>
     </div>
 </section>
-      <!-- Professional Skills -->
-      <div class="mt-5" data-aos="fade-up" data-aos-delay="900">
-        <h4 class="text-center mb-4">Professional Skills</h4>
-        <ul class="professional-skills">
-          <li data-aos="zoom-in" data-aos-delay="1000">Problem Solving</li>
-          <li data-aos="zoom-in" data-aos-delay="1100">Team Collaboration</li>
-          <li data-aos="zoom-in" data-aos-delay="1200">Project Management</li>
-          <li data-aos="zoom-in" data-aos-delay="1300">Communication</li>
-          <li data-aos="zoom-in" data-aos-delay="1400">Adaptability</li>
-          <li data-aos="zoom-in" data-aos-delay="1500">Time Management</li>
-        </ul>
-      </div>
+     
     </div>
-  </section>
+</section>
 
   <!-- Education Section -->
   <section id="education" class="py-5 bg-light">
@@ -502,17 +503,13 @@
                 <textarea name="message" class="form-control form-control-lg" rows="6" placeholder="Your Message" required></textarea>
               </div>
               <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
-                  <i class='bx bxs-paper-plane me-2'></i>Send Message
-                </button>
+                <button type="submit" id="submitBtn" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+    <i class='bx bxs-paper-plane me-2'></i>Send Message
+</button>
               </div>
             </div>
           </form>
-          <div id="successMessage" class="text-center bg-success text-white p-4 rounded" style="display:none;">
-            <h4>Thank You!</h4>
-            <p>Your message has been sent successfully. I'll get back to you soon!</p>
-          </div>
-        </div>
+         <div id="formMessage" class="text-center p-4 rounded" style="display:none;">
       </div>
     </div>
   </section>
