@@ -58,7 +58,7 @@ section {
 .navbar-brand {
     font-weight: 900 !important;
     font-size: 1.8rem !important;
-    background: linear-gradient(90deg, var(--primary-blue), var(--accent-pink));
+    background: linear-gradient(90deg,var(--accent-pink),var(--primary-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
