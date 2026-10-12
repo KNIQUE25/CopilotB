@@ -1,569 +1,553 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Box Icons -->
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <!-- AOS CSS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-  <title>Bridgette Kimotho | Full Stack Developer</title>
-  <!-- Vercel Web Analytics -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Bridgette Kimotho — junior full-stack developer building useful web applications with Laravel, Vue, JavaScript and React." />
+  <title>Bridgette Kimotho | Full-Stack Developer</title>
+
   <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    (function () {
+      document.documentElement.classList.add('js');
+      try {
+        if (localStorage.getItem('portfolio-theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
   </script>
-  <script defer src="/_vercel/insights/script.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind.config.js"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top justify-content-end align-items-end" >
-    <div class="container">
-      <a class="navbar-brand" href="#home">Bridgette Kimotho</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-center gap-3 gap-lg-4">
-          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skill">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item">
-            <button class="theme-toggle btn" id="themeToggle">
-              <i class='bx bxs-moon'></i>
-            </button>
-          </li>
-        </ul>
+<body class="bg-white text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+  <div id="scrollProgress"></div>
+
+  <a href="#home" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[10000] focus:rounded-lg focus:bg-violet-600 focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white">Skip to content</a>
+
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/60 glass dark:border-slate-800/80">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-5 lg:px-8" aria-label="Main navigation">
+      <a href="#home" class="flex min-w-0 items-center gap-3 font-extrabold tracking-tight group">
+        <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-violet-600 text-white shadow-glow transition group-hover:scale-105">BK</span>
+        <span class="hidden min-w-0 sm:block">
+          <span class="block truncate">Bridgette Kimotho</span>
+          <span class="block truncate text-xs font-medium text-slate-500 dark:text-slate-400">Full-Stack Developer</span>
+        </span>
+      </a>
+
+      <div class="hidden items-center gap-5 lg:flex xl:gap-6">
+        <a class="nav-link text-sm font-semibold hover:text-violet-600 transition" href="#home">Home</a>
+        <a class="nav-link text-sm font-semibold hover:text-violet-600 transition" href="#about">About</a>
+        <a class="nav-link text-sm font-semibold hover:text-violet-600 transition" href="#skills">Skills</a>
+        <a class="nav-link text-sm font-semibold hover:text-violet-600 transition" href="#projects">Projects</a>
+        <a class="nav-link text-sm font-semibold hover:text-violet-600 transition" href="#education">Education</a>
+        <a class="nav-link text-sm font-semibold hover:text-violet-600 transition" href="#testimonials">Testimonials</a>
+        <a class="nav-link text-sm font-semibold hover:text-violet-600 transition" href="#contact">Contact</a>
+      </div>
+
+      <div class="flex shrink-0 items-center gap-2">
+        <button id="themeToggle" type="button" class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-sm transition hover:border-violet-400 dark:border-slate-700" aria-label="Toggle light and dark mode">☾</button>
+        <button id="menuToggle" type="button" class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 lg:hidden dark:border-slate-700" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white px-4 py-4 sm:px-5 dark:border-slate-800 dark:bg-slate-950 lg:hidden">
+      <div class="grid grid-cols-2 gap-3 text-sm font-semibold">
+        <a href="#home" class="rounded-lg px-2 py-2 hover:bg-violet-50 dark:hover:bg-violet-950/40">Home</a>
+        <a href="#about" class="rounded-lg px-2 py-2 hover:bg-violet-50 dark:hover:bg-violet-950/40">About</a>
+        <a href="#skills" class="rounded-lg px-2 py-2 hover:bg-violet-50 dark:hover:bg-violet-950/40">Skills</a>
+        <a href="#projects" class="rounded-lg px-2 py-2 hover:bg-violet-50 dark:hover:bg-violet-950/40">Projects</a>
+        <a href="#education" class="rounded-lg px-2 py-2 hover:bg-violet-50 dark:hover:bg-violet-950/40">Education</a>
+        <a href="#testimonials" class="rounded-lg px-2 py-2 hover:bg-violet-50 dark:hover:bg-violet-950/40">Testimonials</a>
+        <a href="#contact" class="col-span-2 rounded-lg px-2 py-2 hover:bg-violet-50 dark:hover:bg-violet-950/40">Contact</a>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero position-relative">
-    <!-- Particles Background -->
-    <!-- <div id="particles-js" class="position-absolute top-0 start-0 w-100 h-100"></div> -->
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero-grid relative overflow-hidden pt-28 pb-14 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
+      <div class="pointer-events-none absolute -right-20 -top-16 h-56 w-56 rounded-full bg-violet-400/25 blur-3xl sm:h-72 sm:w-72 dark:bg-violet-700/20 animate-pulse-soft"></div>
+      <div class="pointer-events-none absolute -left-16 bottom-10 h-44 w-44 rounded-full bg-blue-400/20 blur-3xl sm:h-56 sm:w-56 dark:bg-blue-700/15"></div>
 
-    <div class="container position-relative" style="z-index: 2;">
-      <div class="row align-items-center min-vh-100">
-        <div class="col-lg-6 mt-5 pt-5" data-aos="fade-right">
-          <h1 class="display-1 mb-4">Hi, I'm <span>Bridgette Kimotho</span></h1>
-          <p class="lead mb-4">Full Stack Developer & UI/UX Designer</p>
-          <p class="fs-5 mb-4">I create digital experiences that inspire, engage, and deliver results. Let's build something extraordinary together!</p>
-          
-          <!-- Call-to-Action -->
-          <div class="inspiration-box p-4 mb-4 rounded">
-            <h4 class="mb-3">Ready to Bring Your Vision to Life?</h4>
-            <p class="mb-3">Let's collaborate to create solutions that drive success and make an impact.</p>
-            <div class="d-flex flex-wrap gap-3 align-items-center">
-              <a href="#contact" class="btn btn-primary btn-lg px-4 py-3 rounded-pill">
-                <i class="bx bx-rocket me-2"></i>Start Your Project
-              </a>
-              <a href="tel:+254716006225" class="btn btn-outline-primary btn-lg px-4 py-3 rounded-pill">
-                <i class="bx bx-phone me-2"></i>Call Me Now
-              </a>
-           <a href="BRIDGETTE KIMOTHO CV .pdf" 
-   download="BRIDGETTE KIMOTHO CV .pdf"
-   class="btn btn-resume px-4 py-3">
-   <i class="bx bx-download me-2"></i>Download Resume
-</a>
-            </div>
+      <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-5 lg:grid-cols-[1.15fr_.85fr] lg:gap-12 lg:px-8">
+        <div class="reveal min-w-0">
+          <span class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700 sm:px-4 sm:text-sm dark:border-emerald-900 dark:bg-emerald-950/60 dark:text-emerald-300">
+            <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Open to internships &amp; junior roles
+          </span>
+
+          <p class="mt-6 text-base font-semibold text-violet-600 sm:mt-7 sm:text-lg dark:text-violet-400">Hello, I'm</p>
+          <h1 class="mt-1 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+            <span id="typedName" class="typing-cursor gradient-text">Bridgette Kimotho</span>
+          </h1>
+          <h2 class="mt-3 text-lg font-bold text-slate-700 sm:text-xl md:text-2xl dark:text-slate-200">Junior Full-Stack Developer</h2>
+
+          <p class="mt-4 max-w-xl text-sm leading-7 text-slate-600 sm:mt-5 sm:text-base dark:text-slate-300">
+            I turn real-world problems into clean, responsive web apps. Currently focused on Laravel, Vue.js, React and modern frontend craft.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-2 sm:mt-7 sm:gap-3">
+            <a href="#projects" class="rounded-xl bg-violet-600 px-4 py-2.5 text-sm font-bold text-white shadow-glow transition hover:-translate-y-1 hover:bg-violet-700 hover:shadow-glow-lg sm:px-5 sm:py-3">Explore projects ↗</a>
+            <a href="Bridgette_Kimotho_CV.pdf" class="rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-bold transition hover:-translate-y-1 hover:border-violet-500 sm:px-5 sm:py-3 dark:border-slate-700">Download CV ↓</a>
+            <a href="#contact" class="rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-bold transition hover:-translate-y-1 hover:border-violet-500 sm:px-5 sm:py-3 dark:border-slate-700">Let's talk</a>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2 text-xs font-medium text-slate-500 sm:mt-7 dark:text-slate-400">
+            <span class="rounded-lg bg-white/90 px-3 py-1.5 shadow-sm dark:bg-slate-900">Laravel</span>
+            <span class="rounded-lg bg-white/90 px-3 py-1.5 shadow-sm dark:bg-slate-900">Vue.js</span>
+            <span class="rounded-lg bg-white/90 px-3 py-1.5 shadow-sm dark:bg-slate-900">React</span>
+            <span class="rounded-lg bg-white/90 px-3 py-1.5 shadow-sm dark:bg-slate-900">Tailwind</span>
+            <span class="rounded-lg bg-white/90 px-3 py-1.5 shadow-sm dark:bg-slate-900">JavaScript</span>
           </div>
         </div>
-        <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="300">
-          <img src="Bridgette pic.jpeg" 
-               alt="A lady smiling confidently, dressed in a smart blazer, with a modern office background" 
-               class="hero-img img-fluid rounded-circle">
-        </div>
-      </div>
-    </div>
 
-    <!-- Floating Tech Icons - Fixed z-index -->
-    <div class="tech-circles-container">
-      <div class="tech-circle" style="top:10%;left:5%;">
-        <i class="bx bxl-html5"></i>
-      </div>
-      <div class="tech-circle" style="top:20%;right:10%;">
-        <i class="bx bxl-css3"></i>
-      </div>
-      <div class="tech-circle" style="bottom:30%;left:10%;">
-        <i class="bx bxl-javascript"></i>
-      </div>
-      <div class="tech-circle" style="top:40%;right:5%;">
-        <i class="bx bxl-react"></i>
-      </div>
-      <div class="tech-circle" style="bottom:15%;right:15%;">
-        <i class="bx bxl-nodejs"></i>
-      </div>
-      <div class="tech-circle" style="top:15%;right:25%;">
-        <i class="bx bxl-python"></i>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">About Me</h2>
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="200">
-          <p class="lead about-text">I'm a passionate Full Stack Developer who loves turning ideas into reality through clean code and beautiful design.</p>
-          <div class="row mt-5">
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-              <i class="bx bx-code fs-1 text-primary mb-3"></i>
-              <h5>Clean Code</h5>
-              <p class="small">Writing efficient, maintainable code</p>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
-              <i class="bx bx-palette fs-1 text-primary mb-3"></i>
-              <h5>Creative Design</h5>
-              <p class="small">Beautiful, user-centered interfaces</p>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
-              <i class="bx bx-rocket fs-1 text-primary mb-3"></i>
-              <h5>Fast Delivery</h5>
-              <p class="small">Timely project completion</p>
-            </div>
-          </div>
-        </div>
-      </div>  
-    </div>
-  </section>
-
- <!-- Skills Section -->
-<section id="skill" class="py-5">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Technical Expertise</h2>
-        
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <!-- Frontend Development -->
-                <div class="skill-category mb-5" data-aos="fade-up" data-aos-delay="100">
-                    <div class="skill-header d-flex align-items-center mb-4">
-                        <i class="bx bx-code-alt fs-1 text-primary me-3"></i>
-                        <div>
-                            <h4 class="mb-1">Frontend Development</h4>
-                            <p class="text-muted mb-0">Building responsive, interactive user interfaces</p>
-                        </div>
-                    </div>
-                    <div class="skill-items row">
-                        <div class="col-md-6">
-                            <div class="skill-card p-3 mb-3 bg-white rounded shadow-sm border-start border-4 border-primary">
-                                <h6 class="fw-bold mb-2">React & Next.js</h6>
-                                <p class="small mb-0">Modern component-based architecture with server-side rendering capabilities</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="skill-card p-3 mb-3 bg-white rounded shadow-sm border-start border-4 border-primary">
-                                <h6 class="fw-bold mb-2">HTML5 & CSS3</h6>
-                                <p class="small mb-0">Semantic markup with modern CSS features including Flexbox, Grid, and animations</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="skill-card p-3 mb-3 bg-white rounded shadow-sm border-start border-4 border-primary">
-                                <h6 class="fw-bold mb-2">JavaScript (ES6+)</h6>
-                                <p class="small mb-0">Advanced features including async/await, modules, and modern frameworks</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="skill-card p-3 mb-3 bg-white rounded shadow-sm border-start border-4 border-primary">
-                                <h6 class="fw-bold mb-2">Responsive Design</h6>
-                                <p class="small mb-0">Mobile-first approach ensuring optimal viewing across all devices</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Backend Development -->
-                <div class="skill-category mb-5" data-aos="fade-up" data-aos-delay="200">
-                    <div class="skill-header d-flex align-items-center mb-4">
-                        <i class="bx bx-server fs-1 text-primary me-3"></i>
-                        <div>
-                            <h4 class="mb-1">Backend Development</h4>
-                            <p class="text-muted mb-0">Robust server-side solutions and API development</p>
-                        </div>
-                    </div>
-                    <div class="skill-items row">
-                        <div class="col-md-6">
-                            <div class="skill-card p-3 mb-3 bg-white rounded shadow-sm border-start border-4 border-secondary">
-                                <h6 class="fw-bold mb-2">Node.js & Express</h6>
-                                <p class="small mb-0">Building scalable REST APIs and microservices architecture</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="skill-card p-3 mb-3 bg-white rounded shadow-sm border-start border-4 border-secondary">
-                                <h6 class="fw-bold mb-2">Python & Django</h6>
-                                <p class="small mb-0">Rapid development of secure, maintainable web applications</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="skill-card p-3 mb-3 bg-white rounded shadow-sm border-start border-4 border-secondary">
-                                <h6 class="fw-bold mb-2">Database Management</h6>
-                                <p class="small mb-0">MongoDB, PostgreSQL, and MySQL with optimized query design</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="skill-card p-3 mb-3 bg-white rounded shadow-sm border-start border-4 border-secondary">
-                                <h6 class="fw-bold mb-2">API Development</h6>
-                                <p class="small mb-0">RESTful APIs, GraphQL, and third-party API integrations</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tools & Platforms -->
-                <div class="skill-category mb-5" data-aos="fade-up" data-aos-delay="300">
-                    <div class="skill-header d-flex align-items-center mb-4">
-                        <i class="bx bx-cog fs-1 text-primary me-3"></i>
-                        <div>
-                            <h4 class="mb-1">Tools & Platforms</h4>
-                            <p class="text-muted mb-0">Modern development workflow and deployment solutions</p>
-                        </div>
-                    </div>
-                    <div class="skill-items row">
-                        <div class="col-md-4">
-                            <div class="skill-tag p-3 mb-3 text-center bg-light rounded">
-                                <i class="bx bxl-git mb-2 fs-4"></i>
-                                <h6 class="fw-bold mb-1">Git & GitHub</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="skill-tag p-3 mb-3 text-center bg-light rounded">
-                                <i class="bx bx-cloud mb-2 fs-4"></i>
-                                <h6 class="fw-bold mb-1">AWS & Vercel & Render</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="skill-tag p-3 mb-3 text-center bg-light rounded">
-                                <i class="bx bx-package mb-2 fs-4"></i>
-                                <h6 class="fw-bold mb-1">Docker & CI/CD</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="skill-tag p-3 mb-3 text-center bg-light rounded">
-                                <i class="bx bx-test-tube mb-2 fs-4"></i>
-                                <h6 class="fw-bold mb-1">Testing (Jest)</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="skill-tag p-3 mb-3 text-center bg-light rounded">
-                                <i class="bx bx-palette mb-2 fs-4"></i>
-                                <h6 class="fw-bold mb-1">Figma & Adobe XD</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="skill-tag p-3 mb-3 text-center bg-light rounded">
-                                <i class="bx bx-terminal mb-2 fs-4"></i>
-                                <h6 class="fw-bold mb-1">VS Code & CLI</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-         <!-- Professional Skills -->
-      <div class="mt-5" data-aos="fade-up" data-aos-delay="900">
-        <h4 class="text-center mb-4">Professional Skills</h4>
-        <ul class="professional-skills">
-          <li data-aos="zoom-in" data-aos-delay="1000">Problem Solving</li>
-          <li data-aos="zoom-in" data-aos-delay="1100">Team Collaboration</li>
-          <li data-aos="zoom-in" data-aos-delay="1200">Project Management</li>
-          <li data-aos="zoom-in" data-aos-delay="1300">Communication</li>
-          <li data-aos="zoom-in" data-aos-delay="1400">Adaptability</li>
-          <li data-aos="zoom-in" data-aos-delay="1500">Time Management</li>
-        </ul>
-      </div>
-        
-        <!-- Approach Section -->
-        <div class="row mt-5 pt-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="col-lg-8 mx-auto">
-                <div class="approach-box p-4 rounded bg-gradient-primary text-white">
-                    <h4 class="mb-3"><i class="bx bx-bulb me-2"></i>My Development Approach</h4>
-                    <p class="mb-0">I combine technical expertise with strategic thinking to deliver solutions that are not only technically sound but also drive business value. My focus is on clean code, scalable architecture, and user-centered design that delivers measurable results.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-     
-    </div>
-</section>
-
-  <!-- Education Section -->
-  <section id="education" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Education</h2>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="education-timeline">
-            
-
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-              <div class="timeline-icon">
-                <i class="bx bxs-certification text-primary fs-3"></i>
+        <div class="reveal flex justify-center lg:justify-end">
+          <div class="relative float grid aspect-square w-full max-w-[280px] place-items-center rounded-[2rem] border border-violet-200/80 bg-gradient-to-br from-violet-100 via-white to-blue-100 p-6 shadow-glow sm:max-w-sm sm:rounded-[2.2rem] sm:p-7 dark:border-violet-900/60 dark:from-slate-900 dark:via-slate-900 dark:to-violet-950">
+            <div class="absolute left-5 top-5 h-14 w-14 rounded-2xl border border-violet-300/60 sm:h-16 sm:w-16 dark:border-violet-700/40"></div>
+            <div class="absolute bottom-6 right-6 h-16 w-16 rounded-full bg-violet-400/25 blur-md sm:h-20 sm:w-20"></div>
+            <div class="relative z-10 text-center">
+              <div class="mx-auto grid h-24 w-24 place-items-center rounded-[1.5rem] bg-gradient-to-br from-violet-600 to-blue-600 text-3xl font-extrabold text-white shadow-xl sm:h-32 sm:w-32 sm:rounded-[1.75rem] sm:text-4xl">BK</div>
+              <p class="mt-5 text-base font-extrabold sm:mt-6 sm:text-lg">Build. Learn. Ship.</p>
+              <p class="mt-1.5 max-w-[220px] text-xs leading-6 text-slate-600 sm:text-sm dark:text-slate-300">Clean interfaces &amp; useful apps, one project at a time.</p>
+              <div class="mt-4 flex justify-center gap-1.5 sm:mt-5">
+                <span class="h-1.5 w-7 rounded-full bg-violet-600"></span>
+                <span class="h-1.5 w-1.5 rounded-full bg-blue-400"></span>
+                <span class="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span>
               </div>
-              <div class="card shadow-sm border-0">
-                <div class="card-body p-4">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h5 class="card-title fw-bold mb-0">Diploma in Software Development</h5>
-                    <span class="badge bg-primary rounded-pill">2025 - 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-14 sm:py-16 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-5 lg:grid-cols-[.65fr_1.35fr] lg:gap-10 lg:px-8">
+        <div class="reveal">
+          <p class="font-bold text-violet-600">01 / About</p>
+          <h2 class="mt-2 text-2xl font-extrabold sm:text-3xl lg:text-4xl">Curious builder.<br><span class="gradient-text">Practical problem-solver.</span></h2>
+        </div>
+
+        <div class="reveal">
+          <p class="text-sm leading-7 text-slate-600 sm:text-base lg:text-lg dark:text-slate-300">
+            I'm a junior full-stack developer who learns by shipping. I enjoy crafting accessible interfaces, wiring frontend experiences to solid backends, and picking up the engineering habits that make apps reliable.
+          </p>
+
+          <div class="mt-6 grid gap-4 sm:grid-cols-3">
+            <div class="rounded-2xl border border-slate-200 p-5 transition hover:border-violet-300 hover:shadow-md dark:border-slate-800 dark:hover:border-violet-700">
+              <span class="text-2xl">⌘</span>
+              <h3 class="mt-2.5 font-bold">Problem solving</h3>
+              <p class="mt-1.5 text-sm leading-6 text-slate-500 dark:text-slate-400">Break requirements into clear, shippable steps.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 p-5 transition hover:border-violet-300 hover:shadow-md dark:border-slate-800 dark:hover:border-violet-700">
+              <span class="text-2xl">↗</span>
+              <h3 class="mt-2.5 font-bold">Always learning</h3>
+              <p class="mt-1.5 text-sm leading-6 text-slate-500 dark:text-slate-400">Improve through practice, feedback and new tools.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 p-5 transition hover:border-violet-300 hover:shadow-md dark:border-slate-800 dark:hover:border-violet-700">
+              <span class="text-2xl">◎</span>
+              <h3 class="mt-2.5 font-bold">User-focused</h3>
+              <p class="mt-1.5 text-sm leading-6 text-slate-500 dark:text-slate-400">Design for clarity, speed and real people.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="bg-slate-50 py-14 sm:py-16 lg:py-20 dark:bg-slate-900/40">
+      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <div class="reveal flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="font-bold text-violet-600">02 / Skills</p>
+            <h2 class="mt-2 text-2xl font-extrabold sm:text-3xl lg:text-4xl">What I work with</h2>
+            <p class="mt-3 max-w-xl text-sm text-slate-600 sm:text-base dark:text-slate-300">Tools I've used to ship projects — grouped so you can scan quickly.</p>
+          </div>
+
+          <div class="flex flex-wrap gap-2" id="skillFilters">
+            <button type="button" class="skill-filter active rounded-lg bg-violet-600 px-3 py-1.5 text-xs font-bold text-white sm:px-3.5 sm:text-sm" data-cat="all">All</button>
+            <button type="button" class="skill-filter rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-bold sm:px-3.5 sm:text-sm dark:border-slate-600" data-cat="frontend">Frontend</button>
+            <button type="button" class="skill-filter rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-bold sm:px-3.5 sm:text-sm dark:border-slate-600" data-cat="backend">Backend</button>
+            <button type="button" class="skill-filter rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-bold sm:px-3.5 sm:text-sm dark:border-slate-600" data-cat="tools">Tools</button>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-3 sm:mt-9 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4" id="skillsGrid">
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="frontend">
+            <div class="flex items-center gap-3"><span class="skill-icon">🌐</span><div class="min-w-0"><h3 class="font-bold">HTML5 &amp; CSS3</h3><p class="text-xs text-slate-500 dark:text-slate-400">Semantic markup · modern layout</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="frontend">
+            <div class="flex items-center gap-3"><span class="skill-icon">⚡</span><div class="min-w-0"><h3 class="font-bold">JavaScript</h3><p class="text-xs text-slate-500 dark:text-slate-400">ES6+ · DOM · async patterns</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="frontend">
+            <div class="flex items-center gap-3"><span class="skill-icon">🎨</span><div class="min-w-0"><h3 class="font-bold">Tailwind CSS</h3><p class="text-xs text-slate-500 dark:text-slate-400">Utility-first · rapid UI</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="frontend">
+            <div class="flex items-center gap-3"><span class="skill-icon">💚</span><div class="min-w-0"><h3 class="font-bold">Vue.js</h3><p class="text-xs text-slate-500 dark:text-slate-400">Components · reactivity</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="frontend">
+            <div class="flex items-center gap-3"><span class="skill-icon">⚛️</span><div class="min-w-0"><h3 class="font-bold">React</h3><p class="text-xs text-slate-500 dark:text-slate-400">Hooks · component architecture</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="frontend">
+            <div class="flex items-center gap-3"><span class="skill-icon">📦</span><div class="min-w-0"><h3 class="font-bold">Bootstrap</h3><p class="text-xs text-slate-500 dark:text-slate-400">Responsive grids &amp; components</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="backend">
+            <div class="flex items-center gap-3"><span class="skill-icon">🔴</span><div class="min-w-0"><h3 class="font-bold">PHP / Laravel</h3><p class="text-xs text-slate-500 dark:text-slate-400">MVC · APIs · authentication</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="backend">
+            <div class="flex items-center gap-3"><span class="skill-icon">🟢</span><div class="min-w-0"><h3 class="font-bold">Node.js / Express</h3><p class="text-xs text-slate-500 dark:text-slate-400">REST services · middleware</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="backend">
+            <div class="flex items-center gap-3"><span class="skill-icon">🗄️</span><div class="min-w-0"><h3 class="font-bold">MySQL</h3><p class="text-xs text-slate-500 dark:text-slate-400">Schema design · queries</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="backend">
+            <div class="flex items-center gap-3"><span class="skill-icon">🍃</span><div class="min-w-0"><h3 class="font-bold">MongoDB</h3><p class="text-xs text-slate-500 dark:text-slate-400">Document store basics</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="backend">
+            <div class="flex items-center gap-3"><span class="skill-icon">🔗</span><div class="min-w-0"><h3 class="font-bold">REST APIs</h3><p class="text-xs text-slate-500 dark:text-slate-400">Design · integration · testing</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="tools">
+            <div class="flex items-center gap-3"><span class="skill-icon">🐙</span><div class="min-w-0"><h3 class="font-bold">Git &amp; GitHub</h3><p class="text-xs text-slate-500 dark:text-slate-400">Version control · collaboration</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="tools">
+            <div class="flex items-center gap-3"><span class="skill-icon">🚀</span><div class="min-w-0"><h3 class="font-bold">Vite</h3><p class="text-xs text-slate-500 dark:text-slate-400">Fast builds · modern tooling</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="tools">
+            <div class="flex items-center gap-3"><span class="skill-icon">📬</span><div class="min-w-0"><h3 class="font-bold">Postman</h3><p class="text-xs text-slate-500 dark:text-slate-400">API testing &amp; collections</p></div></div>
+          </div>
+          <div class="skill-card reveal rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-700 dark:bg-slate-900" data-cat="tools">
+            <div class="flex items-center gap-3"><span class="skill-icon">📱</span><div class="min-w-0"><h3 class="font-bold">Flutter / Dart</h3><p class="text-xs text-slate-500 dark:text-slate-400">Mobile fundamentals</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-14 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <div class="reveal flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p class="font-bold text-violet-600">03 / Projects</p>
+            <h2 class="mt-2 text-2xl font-extrabold sm:text-3xl lg:text-4xl">Things I've built</h2>
+            <p class="mt-3 max-w-xl text-sm text-slate-600 sm:text-base dark:text-slate-300">Completed work and projects still in progress.</p>
+          </div>
+
+          <div class="flex flex-wrap gap-2" id="projectFilters">
+            <button type="button" class="filter-btn rounded-lg bg-violet-600 px-3.5 py-2 text-xs font-bold text-white sm:px-4 sm:text-sm" data-filter="all">All</button>
+            <button type="button" class="filter-btn rounded-lg border border-slate-300 px-3.5 py-2 text-xs font-bold sm:px-4 sm:text-sm dark:border-slate-700" data-filter="completed">Completed</button>
+            <button type="button" class="filter-btn rounded-lg border border-slate-300 px-3.5 py-2 text-xs font-bold sm:px-4 sm:text-sm dark:border-slate-700" data-filter="ongoing">Ongoing</button>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-5 sm:mt-9 sm:gap-6 lg:grid-cols-3" id="projectGrid">
+          <article class="project-card reveal overflow-hidden rounded-3xl border border-slate-200 bg-white transition hover:-translate-y-2 hover:shadow-glow dark:border-slate-800 dark:bg-slate-900" data-status="completed">
+            <div class="flex h-36 items-end bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-700 p-5 sm:h-40">
+              <div class="rounded-xl border border-white/20 bg-white/10 p-3.5 text-white backdrop-blur">
+                <p class="text-[10px] uppercase tracking-[.18em] text-cyan-200">TechHaven</p>
+                <p class="mt-1 text-lg font-extrabold sm:text-xl">Electronics, made easy.</p>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="text-lg font-extrabold">TechHaven</h3>
+                <span class="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Completed</span>
+              </div>
+              <p class="mt-2.5 text-sm leading-6 text-slate-600 dark:text-slate-300">Electronics e-commerce site focused on clean product presentation and a smooth shopping experience.</p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="tech-tag">React</span><span class="tech-tag">Tailwind</span><span class="tech-tag">JavaScript</span>
+              </div>
+              <div class="mt-5 flex gap-2">
+                <a class="project-link" href="#" data-placeholder-link>Live demo ↗</a>
+                <a class="project-link secondary" href="https://github.com/KNIQUE25/solid-lamp" data-placeholder-link>GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal overflow-hidden rounded-3xl border border-slate-200 bg-white transition hover:-translate-y-2 hover:shadow-glow dark:border-slate-800 dark:bg-slate-900" data-status="completed">
+            <div class="flex h-36 items-end bg-gradient-to-br from-violet-950 via-indigo-800 to-blue-500 p-5 sm:h-40">
+              <div class="rounded-xl border border-white/20 bg-white/10 p-3.5 text-white backdrop-blur">
+                <p class="text-[10px] uppercase tracking-[.18em] text-violet-200">FreelanceFlow</p>
+                <p class="mt-1 text-lg font-extrabold sm:text-xl">Freelance work, organized.</p>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="text-lg font-extrabold">FreelanceFlow</h3>
+                <span class="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Completed</span>
+              </div>
+              <p class="mt-2.5 text-sm leading-6 text-slate-600 dark:text-slate-300">Freelance management &amp; invoicing app with Laravel backend and Vue frontend for client workflows.</p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="tech-tag">Laravel</span><span class="tech-tag">Vue.js</span><span class="tech-tag">Tailwind</span>
+              </div>
+              <div class="mt-5 flex gap-2">
+                <a class="project-link" href="https://freelanceflow-one-gilt.vercel.app/" data-placeholder-link>Live demo ↗</a>
+                <a class="project-link secondary" href="https://github.com/KNIQUE25/freelanceflow" data-placeholder-link>GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal overflow-hidden rounded-3xl border border-slate-200 bg-white transition hover:-translate-y-2 hover:shadow-glow dark:border-slate-800 dark:bg-slate-900" data-status="ongoing">
+            <div class="flex h-36 items-end bg-gradient-to-br from-amber-900 via-orange-800 to-rose-600 p-5 sm:h-40">
+              <div class="rounded-xl border border-white/20 bg-white/10 p-3.5 text-white backdrop-blur">
+                <p class="text-[10px] uppercase tracking-[.18em] text-amber-200">Student System</p>
+                <p class="mt-1 text-lg font-extrabold sm:text-xl">School data, simplified.</p>
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <h3 class="text-lg font-extrabold">Student Management</h3>
+                <span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-bold text-amber-800 dark:bg-amber-950 dark:text-amber-300">In progress</span>
+              </div>
+              <p class="mt-2.5 text-sm leading-6 text-slate-600 dark:text-slate-300">Laravel app to organize student records, classes and school-related information in one place.</p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="tech-tag">Laravel</span><span class="tech-tag">MySQL</span><span class="tech-tag">Blade</span>
+              </div>
+              <div class="mt-5 flex gap-2">
+                <a class="project-link secondary" href="#" data-placeholder-link>GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="bg-slate-50 py-14 sm:py-16 lg:py-20 dark:bg-slate-900/40">
+      <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-5 lg:grid-cols-[.6fr_1.4fr] lg:px-8">
+        <div class="reveal">
+          <p class="font-bold text-violet-600">04 / Education</p>
+          <h2 class="mt-2 text-2xl font-extrabold sm:text-3xl lg:text-4xl">Learning path</h2>
+          <p class="mt-3 max-w-sm text-sm text-slate-600 sm:text-base dark:text-slate-300">Formal software development training, applied directly in the projects above.</p>
+        </div>
+
+        <div class="space-y-5">
+          <article class="reveal rounded-3xl border border-violet-200/80 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-glow sm:p-6 lg:p-8 dark:border-violet-900/50 dark:bg-slate-900">
+            <div class="flex items-start gap-4">
+              <div class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-violet-100 text-xl sm:h-12 sm:w-12 dark:bg-violet-950/60">🎓</div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-bold text-amber-800 dark:bg-amber-950 dark:text-amber-300">In progress</span>
+                  <span class="text-xs font-bold uppercase tracking-[.14em] text-violet-600 dark:text-violet-400">2025 – 2026</span>
+                </div>
+                <h3 class="mt-2 text-lg font-extrabold sm:text-xl">Diploma in Software Development</h3>
+                <p class="mt-1 text-sm font-semibold text-slate-600 dark:text-slate-300">Institute of Software Technology</p>
+                <p class="mt-3 text-sm leading-7 text-slate-600 sm:text-base dark:text-slate-300">
+                  Advanced coursework in full-stack web development, application architecture, databases and REST APIs — building on the certificate with larger, production-style projects.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="reveal rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-glow sm:p-6 lg:p-8 dark:border-slate-800 dark:bg-slate-900">
+            <div class="flex items-start gap-4">
+              <div class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-violet-100 text-xl sm:h-12 sm:w-12 dark:bg-violet-950/60">📜</div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Completed</span>
+                  <span class="text-xs font-bold uppercase tracking-[.14em] text-violet-600 dark:text-violet-400">2025</span>
+                </div>
+                <h3 class="mt-2 text-lg font-extrabold sm:text-xl">Certificate in Software Development</h3>
+                <p class="mt-1 text-sm font-semibold text-slate-600 dark:text-slate-300">Institute of Software Technology</p>
+                <p class="mt-3 text-sm leading-7 text-slate-600 sm:text-base dark:text-slate-300">
+                  Hands-on coursework covering frontend frameworks, backend development, databases, REST APIs and mobile fundamentals — the foundation for the projects featured on this page.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-14 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <div class="reveal">
+          <p class="font-bold text-violet-600">05 / Testimonials</p>
+          <h2 class="mt-2 text-2xl font-extrabold sm:text-3xl lg:text-4xl">What collaborators say</h2>
+          <p class="mt-3 max-w-xl text-sm text-slate-600 sm:text-base dark:text-slate-300">A couple of notes from people I've worked with on projects and learning.</p>
+        </div>
+
+        <div class="mt-8 grid gap-5 sm:mt-9 sm:gap-6 lg:grid-cols-2">
+          <div class="testimonial-card reveal rounded-3xl border border-violet-200/80 bg-gradient-to-br from-violet-50 to-white p-5 dark:border-violet-900/50 dark:from-violet-950/30 dark:to-slate-900 sm:p-6 lg:p-8">
+            <div class="flex items-start gap-3">
+              <span class="text-4xl font-extrabold leading-none text-violet-500">“</span>
+              <div>
+                <p class="text-sm font-medium leading-7 text-slate-700 sm:text-base dark:text-slate-200">
+                  Bridgette is reliable, asks sharp questions, and ships clean work. On FreelanceFlow she owned the Vue side and kept the hand-off with Laravel smooth — always on time and easy to collaborate with.
+                </p>
+                <div class="mt-5 flex items-center gap-3">
+                  <div class="grid h-10 w-10 place-items-center rounded-full bg-violet-600 text-sm font-bold text-white">JM</div>
+                  <div>
+                    <p class="text-sm font-bold">James Mwangi</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Teammate · FreelanceFlow project</p>
                   </div>
-                  <p class="text-muted mb-2">
-                    <i class="bx bxs-school me-2"></i>Institute of Software Development
-                  </p>
-                  <p class="mb-0">
-                    <i class="bx bxs-check-circle text-success me-2"></i>Mastered MERN Stack, Next.js, and modern web technologies
-                  </p>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-              <div class="timeline-icon">
-                <i class='bx bx-highlight text-primary'></i>
-              </div>
-              <div class="card shadow-sm border-0">
-                <div class="card-body p-4">
-                  <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h5 class="card-title fw-bold mb-0">Certificate in Software Development</h5>
-                    <span class="badge bg-primary rounded-pill">2025</span>
+          <div class="testimonial-card reveal rounded-3xl border border-blue-200/80 bg-gradient-to-br from-blue-50 to-white p-5 dark:border-blue-900/50 dark:from-blue-950/30 dark:to-slate-900 sm:p-6 lg:p-8">
+            <div class="flex items-start gap-3">
+              <span class="text-4xl font-extrabold leading-none text-blue-500">“</span>
+              <div>
+                <p class="text-sm font-medium leading-7 text-slate-700 sm:text-base dark:text-slate-200">
+                  She picks up new tools fast and cares about the user experience. During our group projects she consistently improved the UI and helped others debug — a strong junior who already thinks like a professional.
+                </p>
+                <div class="mt-5 flex items-center gap-3">
+                  <div class="grid h-10 w-10 place-items-center rounded-full bg-blue-600 text-sm font-bold text-white">AW</div>
+                  <div>
+                    <p class="text-sm font-bold">Aisha Wanjiru</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Peer developer · Training cohort</p>
                   </div>
-                  <p class="text-muted mb-2">
-                    <i class="bx bxs-school me-2"></i>Institute of Software Development
-                  </p>
-                  <p class="mb-0">
-                    <i class="bx bxs-check-circle text-success me-2"></i>Mastered Basic HTML, CSS and JavaScript
-                  </p>
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-5">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Projects</h2>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card h-100 project-card">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                 class="card-img-top project-img" 
-                 alt="E-Commerce Platform">
-            <div class="card-body d-flex flex-column p-4">
-              <h5 class="fw-bold">E-Commerce Platform</h5>
-              <p class="project-description">Full-stack store with M-PESA API Integration payments, admin panel, and user authentication.</p>
-              <div class="mt-auto">
-                <span class="badge me-2">React</span>
-                <span class="badge me-2">Node.js</span>
-                <span class="badge">MongoDB</span>
-              </div>
-              <div class="project-links mt-3">
-                <a href="#" class="btn btn-sm btn-primary me-2"><i class="bx bx-link-external me-1"></i>Live Demo</a>
-                <a href="https://github.com/KNIQUE25/solid-lamp" class="btn btn-sm btn-outline-primary"><i class="bx bxl-github me-1"></i>GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card h-100 project-card">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                 class="card-img-top project-img" 
-                 alt="Task Management App">
-            <div class="card-body d-flex flex-column p-4">
-              <h5 class="fw-bold">Student Management System</h5>
-              <p class="project-description">Helps the student to keep track of their studies and the exams.</p>
-              <div class="mt-auto">
-                <span class="badge me-2">Next.js</span>
-                <span class="badge me-2">Prisma</span>
-                <span class="badge">Socket.io</span>
-              </div>
-              <div class="project-links mt-3">
-                <a href="#" class="btn btn-sm btn-primary me-2"><i class="bx bx-link-external me-1"></i>Live Demo</a>
-                <a href="https://github.com/KNIQUE25/prison-school.git" class="btn btn-sm btn-outline-primary"><i class="bx bxl-github me-1"></i>GitHub</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="card h-100 project-card">
-            <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                 class="card-img-top project-img" 
-                 alt="Weather Dashboard">
-            <div class="card-body d-flex flex-column p-4">
-              <h5 class="fw-bold">Weather Dashboard</h5>
-              <p class="project-description">Beautiful weather app with forecasts and geolocation features.</p>
-              <div class="mt-auto">
-                <span class="badge me-2">React</span>
-                <span class="badge me-2">Chart.js</span>
-                <span class="badge">API</span>
-              </div>
-              <div class="project-links mt-3">
-                <a href="#" class="btn btn-sm btn-primary me-2"><i class="bx bx-link-external me-1"></i>Live Demo</a>
-                <a href="#" class="btn btn-sm btn-outline-primary"><i class="bx bxl-github me-1"></i>GitHub</a>
-              </div>
-            </div>
+    <!-- CONTACT -->
+    <section id="contact" class="bg-slate-950 py-14 text-white sm:py-16 lg:py-20">
+      <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-5 lg:grid-cols-2 lg:gap-10 lg:px-8">
+        <div class="reveal">
+          <p class="font-bold text-violet-400">06 / Contact</p>
+          <h2 class="mt-2 text-2xl font-extrabold sm:text-3xl lg:text-5xl">Let's build something useful.</h2>
+          <p class="mt-4 max-w-md text-sm leading-7 text-slate-300 sm:text-base">
+            Open to junior roles, internships and collaborations. Drop a message — I reply as soon as I can.
+          </p>
+
+          <div class="mt-6 space-y-3 text-sm text-slate-300 sm:mt-7 sm:text-base">
+            <p class="flex items-center gap-2">
+              <span class="text-violet-400">✉</span>
+              <a class="break-all hover:text-violet-300 transition" href="mailto:bridgette.kimotho@gmail.com">bridgette.kimotho@gmail.com</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <span class="text-violet-400">⌖</span>
+              Nairobi, Kenya
+            </p>
+            <p class="flex items-center gap-2">
+              <span class="text-violet-400">↗</span>
+              <a class="hover:text-violet-300 transition" href="#" data-placeholder-link>LinkedIn</a>
+              <span class="text-slate-600">·</span>
+              <a class="hover:text-violet-300 transition" href="https://github.com/KNIQUE25" data-placeholder-link>GitHub</a>
+            </p>
           </div>
         </div>
 
-         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="card h-100 project-card">
-            <img src="Birthday Image.jpg" 
-                 class="card-img-top project-img" 
-                 alt="Birthday Card Letter">
-            <div class="card-body d-flex flex-column p-4">
-              <h5 class="fw-bold">Birthday Card</h5>
-              <p class="project-description">A birthday card that displays a card with a message and music play.</p>
-              <div class="mt-auto">
-                <span class="badge me-2">React.js</span>
-                <span class="badge me-2">JavaScript</span>
-                <span class="badge">Bootstrap</span>
-              </div>
-              <div class="project-links mt-3">
-                <a href="#" class="btn btn-sm btn-primary me-2"><i class="bx bx-link-external me-1"></i>Live Demo</a>
-                <a href="https://github.com/KNIQUE25/bird.git" class="btn btn-sm btn-outline-primary"><i class="bx bxl-github me-1"></i>GitHub</a>
-              </div>
-            </div>
+        <form id="contactForm" class="reveal rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6 lg:p-7" novalidate>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="text-sm font-semibold">
+              Name
+              <input required name="name" class="form-input mt-1.5" placeholder="Your name" autocomplete="name">
+            </label>
+            <label class="text-sm font-semibold">
+              Email
+              <input required type="email" name="email" class="form-input mt-1.5" placeholder="you@example.com" autocomplete="email">
+            </label>
           </div>
-        </div>
+          <label class="mt-4 block text-sm font-semibold">
+            Message
+            <textarea required name="message" rows="4" class="form-input mt-1.5" placeholder="Tell me about the opportunity..."></textarea>
+          </label>
+          <button class="mt-5 w-full rounded-xl bg-violet-600 px-5 py-3 font-bold transition hover:bg-violet-500 active:scale-[0.98]" type="submit">
+            Send message ↗
+          </button>
+          <p class="mt-2.5 text-center text-xs text-slate-400">Opens your email app — nothing is stored on this site.</p>
+        </form>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
-      <div class="row">
-        <!-- Contact Info -->
-        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
-          <div class="contact-info">
-            <h4 class="mb-4">Let's Connect!</h4>
-            <p class="mb-4">I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
-            
-            <div class="contact-item mb-3">
-              <i class="bx bx-phone text-primary me-3"></i>
-              <span>+254 716 006 225</span>
-            </div>
-            <div class="contact-item mb-3">
-              <i class="bx bx-envelope text-primary me-3"></i>
-              <span>kimothobridgette@gmail.com</span>
-            </div>
-            <div class="contact-item mb-3">
-              <i class="bx bx-map text-primary me-3"></i>
-              <span>Nairobi, Kenya</span>
-            </div>
-            
-            <div class="social-media mt-4">
-              <h6 class="mb-3">Follow me on:</h6>
-              <div class="d-flex gap-3">
-                <a href="http://linkedin.com/" class="social-link"><i class="bx bxl-linkedin"></i></a>
-                <a href="https://github.com/KNIQUE25" class="social-link"><i class="bx bxl-github"></i></a>
-                <a href="https://x.com/" class="social-link"><i class="bx bxl-twitter"></i></a>
-                <a href="https://www.instagram.com/" class="social-link"><i class="bx bxl-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Contact Form -->
-        <div class="col-lg-8" data-aos="fade-left" data-aos-delay="200">
-          <form id="contactForm" class="mb-5">
-            <div class="row g-4">
-              <div class="col-md-6">
-                <input type="text" name="name" class="form-control form-control-lg" placeholder="Your Name" required>
-              </div>
-              <div class="col-md-6">
-                <input type="email" name="email" class="form-control form-control-lg" placeholder="Your Email" required>
-              </div>
-               <div class="col-12">
-              <select name="subject" class="form-select form-select-lg" required>
-                <option value="" disabled selected>Select Subject</option>
-                <option value="Website Development">Website Development</option>
-                <option value="Social Media Management">Social Media Management</option>
-                <option value="Consulting">Consulting</option>
-                <option value="Mobile App Development">Mobile App Development</option>
-                <option value="UI/UX Design">UI/UX Design</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-              <div class="col-12">
-                <textarea name="message" class="form-control form-control-lg" rows="6" placeholder="Your Message" required></textarea>
-              </div>
-              <div class="col-12 text-center">
-                <button type="submit" id="submitBtn" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
-    <i class='bx bxs-paper-plane me-2'></i>Send Message
-</button>
-              </div>
-            </div>
-          </form>
-         <div id="formMessage" class="text-center p-4 rounded" style="display:none;">
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 mb-4">
-          <h5>Bridgette Kimotho</h5>
-          <p>Full Stack Developer & UI/UX Designer</p>
-          <p>Creating digital experiences that make a difference.</p>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <h5>Quick Links</h5>
-          <div class="d-flex flex-column gap-2">
-            <a href="#home" class="footer-link">Home</a>
-            <a href="#about" class="footer-link">About</a>
-            <a href="#projects" class="footer-link">Projects</a>
-            <a href="#contact" class="footer-link">Contact</a>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <h5>Services</h5>
-          <div class="d-flex flex-column gap-2">
-            <span>Web Development</span>
-            <span>UI/UX Design</span>
-            <span>Mobile Apps</span>
-            <span>Consulting</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="border-top pt-4 mt-4">
-        <div class="mb-4">
-          <a href="http://linkedin.com/" class="social-link"><i class='bx bxl-linkedin'></i></a>
-          <a href="https://github.com/" class="social-link"><i class='bx bxl-github'></i></a>
-          <a href="https://x.com/" class="social-link"><i class='bx bxl-twitter'></i></a>
-          <a href="https://www.instagram.com/" class="social-link"><i class='bx bxl-instagram'></i></a>
-          <a href="https://mail.google.com/" class="social-link"><i class='bx bx-envelope'></i></a>
-        </div>
-        <p class="mb-0">&copy; 2025 Bridgette Kimotho. Made with <i class='bx bxs-heart text-danger'></i> & Code</p>
-        <p class="small mt-2">Crafting digital excellence one line at a time</p>
-      </div>
+  <footer class="border-t border-slate-200 py-5 dark:border-slate-800">
+    <div class="mx-auto flex max-w-7xl flex-col justify-between gap-2 px-4 text-sm text-slate-500 sm:flex-row sm:px-5 lg:px-8 dark:text-slate-400">
+      <p>© <span id="year"></span> Bridgette Kimotho</p>
+      <a href="#home" class="font-semibold hover:text-violet-600 transition">Back to top ↑</a>
     </div>
   </footer>
 
-  <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/@tsparticles/all@3.5.0/tsparticles.all.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="script.js"></script>
+  <!-- ============ CHATBOT ============ -->
+  <button id="chatbot-toggle" type="button" aria-label="Open chat assistant" aria-expanded="false" aria-controls="chatbot-window" title="Chat with Bridgette's assistant">
+    <span id="chatIcon" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    </span>
+    <span id="closeIcon" class="hidden" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </span>
+  </button>
 
+  <div id="chatbot-window" role="dialog" aria-label="Chat assistant" aria-modal="false" aria-hidden="true">
+    <header class="chat-header">
+      <div class="chat-avatar">BK</div>
+      <div class="chat-title">
+        <p class="chat-title-main">Bridgette's Assistant</p>
+        <p class="chat-title-sub">Ask about skills, projects &amp; more</p>
+      </div>
+      <div class="chat-header-actions">
+        <button id="voiceSettingsToggle" type="button" class="chat-icon-btn" aria-label="Voice settings" aria-expanded="false" aria-controls="voicePanel" title="Voice settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </button>
+        <button id="chatbot-close" type="button" class="chat-icon-btn" aria-label="Close chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-atomic="false">
+      <div class="chat-bubble bot">
+        Hi! 👋 I'm Bridgette's portfolio assistant. Ask me about her skills, projects, experience, or how to get in touch.
+      </div>
+    </div>
+
+    <div class="chat-suggestions" id="chatSuggestions">
+      <button type="button" class="chat-chip" data-q="What are your skills?">Skills</button>
+      <button type="button" class="chat-chip" data-q="Tell me about your projects">Projects</button>
+      <button type="button" class="chat-chip" data-q="Are you available for work?">Availability</button>
+      <button type="button" class="chat-chip" data-q="How can I contact you?">Contact</button>
+    </div>
+
+    <div class="chat-voice-panel" id="voicePanel" hidden>
+      <button type="button" id="voiceToggle" class="voice-toggle" aria-pressed="true">🔊 Voice answers: On</button>
+
+      <div class="voice-row">
+        <label for="voiceSelect">Voice</label>
+        <select id="voiceSelect" aria-label="Choose speech voice">
+          <option value="">Default voice</option>
+        </select>
+      </div>
+
+      <div class="voice-row">
+        <label for="voiceRate">Speed</label>
+        <input id="voiceRate" type="range" min="0.7" max="1.3" step="0.1" value="1" aria-label="Speech speed">
+        <span id="voiceRateValue" class="voice-rate-value">1.0×</span>
+      </div>
+    </div>
+
+    <form class="chat-input-row" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type or speak a question..." autocomplete="off" aria-label="Your question">
+      <button type="button" id="voiceInput" class="chat-send" aria-label="Start voice input" title="Speak your question">🎙️</button>
+      <button type="submit" class="chat-send" aria-label="Send message">➤</button>
+    </form>
+
+    <p id="voiceStatus" role="status" aria-live="polite" class="voice-status"></p>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
