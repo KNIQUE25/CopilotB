@@ -1,6 +1,3 @@
-/* ============================================================
-   script.js — Bridgette Kimotho portfolio
-   ============================================================ */
 
 (function () {
   'use strict';
@@ -140,32 +137,28 @@
   }, { rootMargin: '-35% 0px -55% 0px' });
   sections.forEach(s => sectionObserver.observe(s));
 
- /* ---------- 10. TYPING ANIMATION ON NAME ---------- */
-const nameEl = $('#typedName');
-if (nameEl) {
-  const fullName = nameEl.textContent.trim() || 'Bridgette Kimotho';
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* ---------- 10. TYPING ANIMATION ON NAME ---------- */
+  const nameEl = $('#typedName');
+  if (nameEl) {
+    const fullName = nameEl.textContent.trim() || 'Bridgette Kimotho';
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (prefersReduced) {
-    // Accessibility: skip the animation for users who asked for less motion
-    nameEl.textContent = fullName;
-  } else {
-    nameEl.textContent = '';
-    let i = 0;
+    if (prefersReduced) {
+      nameEl.textContent = fullName;
+    } else {
+      nameEl.textContent = '';
+      let i = 0;
 
-    function typeNext() {
-      if (i >= fullName.length) return;
-      nameEl.textContent += fullName.charAt(i);
-      i++;
-      // Slight randomness so it feels like human typing, not a metronome
-      setTimeout(typeNext, 70 + Math.random() * 60);
+      function typeNext() {
+        if (i >= fullName.length) return;
+        nameEl.textContent += fullName.charAt(i);
+        i++;
+        setTimeout(typeNext, 70 + Math.random() * 60);
+      }
+
+      setTimeout(typeNext, 400);
     }
-    if (i >= fullName.length) { nameEl.classList.remove('typing-cursor'); return; }
-
-    // Small pause so the reveal animation settles first
-    setTimeout(typeNext, 400);
   }
-}
 
   /* ---------- 11. CHATBOT ---------- */
   const chatToggle      = $('#chatbot-toggle');
