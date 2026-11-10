@@ -70,7 +70,7 @@ main section[id] { scroll-margin-top: 84px; }
 .testimonial-card { transition: transform .35s ease, box-shadow .35s ease; }
 .testimonial-card:hover { transform: translateY(-6px); box-shadow: 0 20px 45px rgba(124,58,237,.12); }
 
-/* ---------- Typing cursor on the hero name ---------- */
+/* ---------- Typing cursor ---------- */
 .typing-cursor::after {
   content: '|';
   animation: blink 1s step-end infinite;
@@ -120,20 +120,189 @@ main section[id] { scroll-margin-top: 84px; }
 .dark .project-link.secondary { border-color: #475569; }
 .project-link.secondary:hover { border-color: #a78bfa; }
 
-/* ---------- Contact form ---------- */
-.form-input {
-  display: block; width: 100%;
-  border: 1px solid rgba(148,163,184,.35);
-  border-radius: 12px;
-  background: rgba(255,255,255,.06);
-  padding: 11px 13px;
-  color: #fff;
-  outline: none;
-  font-size: 16px;
-  transition: border-color .2s, box-shadow .2s;
+/* ---------- Profile photo ---------- */
+.profile-photo { -webkit-tap-highlight-color: transparent; }
+.profile-img { display: none; width: 100%; height: 100%; object-fit: cover; }
+.profile-photo.has-photo .profile-img { display: block; }
+.profile-photo.has-photo .profile-initials { display: none; }
+
+.photo-hint { opacity: 0; transition: opacity .25s ease; }
+.profile-photo:hover .photo-hint,
+.profile-photo:focus-within .photo-hint { opacity: 1; }
+
+.photo-remove {
+  position: absolute;
+  top: -8px; right: -8px;
+  z-index: 20;
+  display: none;
+  place-items: center;
+  width: 26px; height: 26px;
+  border: none; border-radius: 50%;
+  background: #0f172a; color: #fff;
+  font: inherit; font-size: 15px; font-weight: 700; line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+  transition: background .2s, transform .2s;
+  padding: 0;
 }
-.form-input:focus { border-color: #a78bfa; box-shadow: 0 0 0 3px rgba(167,139,250,.18); }
-.form-input::placeholder { color: #94a3b8; }
+.photo-remove:hover { background: #dc2626; transform: scale(1.1); }
+.photo-remove.is-visible { display: grid; }
+
+/* ============================================================
+   CONTACT SECTION (redesign)
+   ============================================================ */
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: background .2s, border-color .2s, transform .2s;
+  text-decoration: none;
+  color: inherit;
+}
+.contact-method:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(167,139,250,0.35);
+  transform: translateX(2px);
+}
+.contact-method-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(59,130,246,0.3));
+  color: #c4b5fd;
+  flex-shrink: 0;
+}
+.contact-method-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #94a3b8;
+  margin-bottom: 2px;
+}
+.contact-method-value {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #f1f5f9;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.social-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #cbd5e1;
+  transition: all .2s;
+}
+.social-btn:hover {
+  background: rgba(124,58,237,0.2);
+  border-color: rgba(167,139,250,0.5);
+  color: #e9d5ff;
+  transform: translateY(-2px);
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #cbd5e1;
+}
+.form-label svg { color: #a78bfa; }
+
+.form-input-pro {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(148,163,184,0.2);
+  color: #fff;
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color .2s, background .2s, box-shadow .2s;
+  outline: none;
+}
+.form-input-pro::placeholder { color: #64748b; }
+.form-input-pro:hover:not(:focus) { border-color: rgba(148,163,184,0.35); }
+.form-input-pro:focus {
+  border-color: #a78bfa;
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 0 0 4px rgba(167,139,250,0.12);
+}
+
+.form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s, filter .2s;
+  box-shadow: 0 8px 24px rgba(124,58,237,0.4);
+}
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(124,58,237,0.55);
+  filter: brightness(1.08);
+}
+.form-submit:active { transform: translateY(0); }
+.form-submit svg { transition: transform .2s; }
+.form-submit:hover svg { transform: translateX(3px); }
+
+.form-success {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(16,185,129,0.08);
+  border: 1px solid rgba(16,185,129,0.25);
+  color: #6ee7b7;
+  font-size: 13px;
+  font-weight: 500;
+  animation: formSuccessIn .4s ease;
+}
+.form-success.show { display: flex; }
+.form-success-icon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(16,185,129,0.2);
+  flex-shrink: 0;
+}
+@keyframes formSuccessIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 /* ============================================================
    CHATBOT — POSITIONING
@@ -224,9 +393,7 @@ main section[id] { scroll-margin-top: 84px; }
   }
 }
 
-/* ============================================================
-   CHATBOT — HEADER
-   ============================================================ */
+/* ---------- Chat header ---------- */
 .chat-header {
   display: flex;
   align-items: center;
@@ -268,9 +435,7 @@ main section[id] { scroll-margin-top: 84px; }
 .chat-icon-btn[aria-expanded="true"] { background: rgba(255,255,255,.22); }
 .chat-icon-btn svg { display: block; }
 
-/* ============================================================
-   CHATBOT — MESSAGES
-   ============================================================ */
+/* ---------- Messages ---------- */
 .chat-messages {
   flex: 1 1 auto;
   min-height: 0;
@@ -317,9 +482,7 @@ main section[id] { scroll-margin-top: 84px; }
 .dark .chat-bubble a { color: #c4b5fd; }
 .chat-bubble strong { font-weight: 700; }
 
-/* ============================================================
-   CHATBOT — SUGGESTIONS
-   ============================================================ */
+/* ---------- Suggestions ---------- */
 .chat-suggestions {
   display: flex; flex-wrap: wrap; gap: 6px;
   padding: 10px 14px;
@@ -341,9 +504,7 @@ main section[id] { scroll-margin-top: 84px; }
 .chat-chip:hover { border-color: #a78bfa; color: #7c3aed; background: #f5f3ff; }
 .dark .chat-chip:hover { background: #2e1065; color: #c4b5fd; }
 
-/* ============================================================
-   CHATBOT — INPUT
-   ============================================================ */
+/* ---------- Input ---------- */
 .chat-input-row {
   display: flex; gap: 8px;
   padding: 10px 12px;
@@ -377,9 +538,7 @@ main section[id] { scroll-margin-top: 84px; }
 .chat-send:hover { background: #6d28d9; }
 .chat-send:disabled { opacity: .45; cursor: not-allowed; }
 
-/* ============================================================
-   CHATBOT — TYPING INDICATOR
-   ============================================================ */
+/* ---------- Typing indicator ---------- */
 .typing-dots span {
   display: inline-block;
   width: 6px; height: 6px; margin: 0 2px;
@@ -393,9 +552,7 @@ main section[id] { scroll-margin-top: 84px; }
   30%           { transform: translateY(-5px); }
 }
 
-/* ============================================================
-   CHATBOT — VOICE PANEL
-   ============================================================ */
+/* ---------- Voice panel ---------- */
 .chat-voice-panel {
   padding: 10px 14px;
   border-top: 1px solid #e2e8f0;
@@ -452,9 +609,7 @@ main section[id] { scroll-margin-top: 84px; }
 }
 .dark .voice-status { color: #cbd5e1; background: #0f172a; }
 
-/* ============================================================
-   CHATBOT — MOBILE FULL SCREEN
-   ============================================================ */
+/* ---------- Chatbot mobile ---------- */
 @media (max-width: 639px) {
   #chatbot-window {
     top: 0 !important;
