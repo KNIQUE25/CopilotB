@@ -1,14 +1,11 @@
 export default async function handler(req, res) {
-  // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Safety check for req.body
   const body = req.body || {};
   const { name, email, message } = body;
 
-  // Basic validation
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
@@ -17,22 +14,22 @@ export default async function handler(req, res) {
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
-        'api-key': process.env.BREVO_API_KEY, // Ensure this is set in Vercel settings
+        'api-key': process.env.BREVO_API_KEY,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         sender: {
-          name: 'Bridgette Kimotho',
-          email: 'kimothobridgette@gmail.com', // MUST be verified in Brevo
+          name: 'Kim Developer', 
+          email: 'kimothobridgette@gmail.com',
         },
         to: [
           {
             email: 'kimothobridgette@gmail.com', 
-            name: 'Bridgette Kimotho',
+            name: 'Kim Developer',
           },
         ],
         replyTo: {
-          email: email, // Allows you to click "Reply" and email the person who filled the form
+          email: email,
           name: name,
         },
         subject: `New Contact Form Submission from ${name}`,
@@ -48,13 +45,14 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const errorData = await response.text();
-      console.error('Brevo API error:', errorData);
-      return res.status(500).json({ error: 'Failed to send email' });
+      console.error('Brevo API Error:', errorData);
+      // THIS is the fix: Send the real error back to the frontend
+      return res.status(500).json({ error: errorData }); 
     }
 
     return res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
-    console.error('Server error:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+    console.error('Server Error:', error);
+    return res.status(500).json({ error: error.message });
   }
 }

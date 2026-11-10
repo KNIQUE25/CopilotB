@@ -103,7 +103,7 @@
   const contactForm = $('#contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault(); // <-- This STOPS the mailto: from opening
+      e.preventDefault(); 
       if (!contactForm.reportValidity()) return;
 
       const data = new FormData(contactForm);
@@ -128,7 +128,6 @@
         });
 
         if (response.ok) {
-          // Show the success message using the .show class from styles.css
           const success = $('#contactSuccess');
           if (success) {
             success.classList.add('show');
@@ -137,12 +136,21 @@
               success.classList.remove('show');
             }, 8000);
           }
-          contactForm.reset(); // Clear the form
+          contactForm.reset(); 
         } else {
-          alert('Something went wrong on the server. Please try again or email me directly.');
+          // --- FIX: SHOW THE ACTUAL SERVER ERROR ---
+          let errorMsg = 'Unknown error occurred.';
+          try {
+            const errorData = await response.json();
+            errorMsg = errorData.error || errorData.message || JSON.stringify(errorData);
+          } catch (err) {
+            errorMsg = await response.text();
+          }
+          console.error('Server Rejected Request:', errorMsg);
+          alert('Server Error: ' + errorMsg);
         }
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Network Error:', error);
         alert('Network error. Please check your connection and try again.');
       } finally {
         submitBtn.disabled = false;
@@ -150,11 +158,11 @@
       }
     });
   }
+
   /* ---------- 8. MISC ---------- */
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Alert only on true placeholder links (href="#")
   $$('[data-placeholder-link]').forEach(link => {
     const href = (link.getAttribute('href') || '').trim();
     if (href === '' || href === '#' || href === 'javascript:void(0)') {
@@ -251,7 +259,6 @@
     } catch (e) {}
   }
 
-  /* BUG FIX #2: don't speak if chat is closed */
   function speakReply(html) {
     if (!voiceEnabled || !synth || !chatOpen) return;
     synth.cancel();
@@ -326,7 +333,6 @@
       setVoiceStatus('Listening… speak now');
     };
     recognition.onresult = e => {
-      /* BUG FIX #4: ignore transcripts that arrive after the chat closed */
       if (!chatOpen) return;
       const t = e.results[0][0].transcript;
       if (chatInput) chatInput.value = t;
@@ -393,7 +399,6 @@
     if (chatIcon) chatIcon.classList.add('hidden');
     if (closeIcon) closeIcon.classList.remove('hidden');
 
-    /* BUG FIX #5: only show suggestions if chat history is just the greeting */
     if (chatSuggestions) {
       const hasHistory = chatMessages && chatMessages.children.length > 1;
       chatSuggestions.style.display = hasHistory ? 'none' : '';
@@ -420,7 +425,6 @@
     document.body.classList.remove('chat-open');
     stopSpeaking();
 
-    /* BUG FIX #1: stop the microphone so it doesn't keep recording */
     if (recognition && listening) {
       try { recognition.stop(); } catch (e) {}
     }
@@ -443,7 +447,6 @@
     voiceSettings.setAttribute('aria-expanded', String(open));
   });
 
-  // Close chat when internal anchors in bubbles are clicked
   chatMessages && chatMessages.addEventListener('click', e => {
     const a = e.target.closest('a[href^="#"]');
     if (a && chatWindow && chatWindow.contains(a)) {
@@ -476,7 +479,6 @@
   }
   const hideTyping = () => { const t = $('#typingIndicator'); if (t) t.remove(); };
 
-  /* Knowledge base — BUG FIX #3: greeting moved to the END so real questions win */
   const knowledge = [
     {
       patterns: [/\bskills?\b/i, /\btech\b/i, /\bstack\b/i, /\blanguages?\b/i, /\bframeworks?\b/i,
@@ -533,7 +535,6 @@ Her coursework covers frontend frameworks, backend development, databases, REST 
       reply: `You're welcome! If you have any other questions about Bridgette's work or want to connect, just ask. 😊`
     },
     {
-      /* Greeting is LAST — real questions take priority */
       patterns: [/\b(hello|hi|hey|yo|good morning|good afternoon|good evening)\b/i],
       reply: `Hey there! 👋 How can I help you learn more about Bridgette? You can ask about her skills, projects, availability or how to get in touch.`
     }
