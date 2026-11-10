@@ -4,7 +4,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, message } = req.body;
+  // Safety check for req.body
+  const body = req.body || {};
+  const { name, email, message } = body;
 
   // Basic validation
   if (!name || !email || !message) {
@@ -15,20 +17,24 @@ export default async function handler(req, res) {
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
-        'api-key': process.env.BREVO_API_KEY, // Securely read from Vercel
+        'api-key': process.env.BREVO_API_KEY, // Ensure this is set in Vercel settings
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         sender: {
-          name: 'Kim Developer',
-          email: 'kimothobridgette@gmail.com',
+          name: 'Bridgette Kimotho',
+          email: 'kimothobridgette@gmail.com', // MUST be verified in Brevo
         },
         to: [
           {
             email: 'kimothobridgette@gmail.com', 
-            name: 'Kim Developer',
+            name: 'Bridgette Kimotho',
           },
         ],
+        replyTo: {
+          email: email, // Allows you to click "Reply" and email the person who filled the form
+          name: name,
+        },
         subject: `New Contact Form Submission from ${name}`,
         htmlContent: `
           <h3>New Message</h3>

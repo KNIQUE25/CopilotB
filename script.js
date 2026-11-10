@@ -100,58 +100,56 @@
   });
 
   /* ---------- 7. CONTACT FORM ---------- */
- const contactForm = $('#contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!contactForm.reportValidity()) return;
+  const contactForm = $('#contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault(); // <-- This STOPS the mailto: from opening
+      if (!contactForm.reportValidity()) return;
 
-    const data = new FormData(contactForm);
-    const payload = {
-      name: data.get('name').toString().trim(),
-      email: data.get('email').toString().trim(),
-      message: data.get('message').toString().trim(),
-    };
+      const data = new FormData(contactForm);
+      const payload = {
+        name: data.get('name').toString().trim(),
+        email: data.get('email').toString().trim(),
+        message: data.get('message').toString().trim(),
+      };
 
-    if (!payload.name || !payload.email || !payload.message) return;
+      if (!payload.name || !payload.email || !payload.message) return;
 
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Sending...';
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending...';
 
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
 
-      if (response.ok) {
-        // Show the success message
-        const success = $('#contactSuccess');
-        if (success) {
-          success.classList.remove('hidden');
-          success.classList.add('flex');
-          clearTimeout(success._hideTimer);
-          success._hideTimer = setTimeout(() => {
-            success.classList.add('hidden');
-            success.classList.remove('flex');
-          }, 8000);
+        if (response.ok) {
+          // Show the success message using the .show class from styles.css
+          const success = $('#contactSuccess');
+          if (success) {
+            success.classList.add('show');
+            clearTimeout(success._hideTimer);
+            success._hideTimer = setTimeout(() => {
+              success.classList.remove('show');
+            }, 8000);
+          }
+          contactForm.reset(); // Clear the form
+        } else {
+          alert('Something went wrong on the server. Please try again or email me directly.');
         }
-        contactForm.reset(); // Clear the form
-      } else {
-        alert('Something went wrong. Please try again or email me directly.');
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Network error. Please check your connection and try again.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
       }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Network error. Please check your connection and try again.');
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
-    }
-  });
-}
+    });
+  }
   /* ---------- 8. MISC ---------- */
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
