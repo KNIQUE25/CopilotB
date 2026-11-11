@@ -1,5 +1,7 @@
-tailwind.config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   darkMode: 'class',
+  content: ["./index.html", "./script.js"], // Tells Tailwind to scan these files
   theme: {
     extend: {
       colors: {
@@ -33,4 +35,4 @@ tailwind.config = {
       }
     }
   }
-};
+}
